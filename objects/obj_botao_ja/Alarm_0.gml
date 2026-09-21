@@ -157,4 +157,4 @@ else
     global.fase_iniciada = false;
 
     show_debug_message("Selecione pelo menos uma planta!");
-}
+} 

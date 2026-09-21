@@ -1,6 +1,6 @@
 // Causa 60 de dano na planta atingida
 with (other) {
-    hp -= 60;
+    other.levar_dano(60);
 }
 
 // Destrói a ervilha ao colidir

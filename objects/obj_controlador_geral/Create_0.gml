@@ -6,7 +6,7 @@ randomize(); // Força o GameMaker a gerar uma semente totalmente nova a cada ex
 
 // Se a variável de vitórias ainda não existe, cria como 0
 if (!variable_global_exists("vitorias")) {
-    global.vitorias = 0; 
+    global.vitorias = 29; 
 }
 
 // Cria a lista de plantas de forma segura

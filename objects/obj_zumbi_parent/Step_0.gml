@@ -42,6 +42,8 @@ if (hp <= 0) {
     
     instance_destroy();
 }
+
+
 // Se não estiver em contato com o gás, restaura a velocidade normal
 if (!place_meeting(x, y, obj_gas_enroscacovas)) {
     if (variable_instance_exists(id, "velocidade_base")) {
