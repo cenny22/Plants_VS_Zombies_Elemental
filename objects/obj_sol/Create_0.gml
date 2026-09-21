@@ -1,0 +1,2 @@
+vspeed = 2;
+alvo_y = irandom_range(100, 500); // Onde o sol vai parar de cair

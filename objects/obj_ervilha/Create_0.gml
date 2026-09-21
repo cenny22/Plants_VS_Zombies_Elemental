@@ -1,0 +1,1 @@
+hspeed = 10; // Anda rápido para a direita

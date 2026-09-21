@@ -1,0 +1,1 @@
+global.sois -= 300;

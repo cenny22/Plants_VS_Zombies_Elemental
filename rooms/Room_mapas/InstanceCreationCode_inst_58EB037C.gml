@@ -1,0 +1,1 @@
+tipo = "mapa_planta";

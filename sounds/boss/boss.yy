@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"boss",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":58.14857,
+  "exportDir":"",
+  "name":"boss",
+  "parent":{
+    "name":"Plants VS Zombies Elemental",
+    "path":"Plants VS Zombies Elemental.yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"boss.mp3",
+  "volume":1.0,
+}

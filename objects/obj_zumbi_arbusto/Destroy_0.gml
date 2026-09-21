@@ -1,0 +1,1 @@
+global.zumbis_mortos ++
