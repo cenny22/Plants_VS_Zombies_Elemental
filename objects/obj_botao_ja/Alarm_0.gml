@@ -1,102 +1,160 @@
-image_alpha = 1;
-// Garante que o jogador escolheu pelo menos 1 planta antes de iniciar
-if (ds_list_size(global.plantas_escolhidas) > 0) {
-global.fase_iniciada = true;
-} else {
-    show_debug_message("Selecione pelo menos uma planta!");
-}
-// 2. Destrói todos os textos/cards de seleção da tela
-with (obj_card_disparervilha) {
+// ============================================================
+// VERIFICA SE PELO MENOS UMA PLANTA FOI ESCOLHIDA
+// ============================================================
+
+if (ds_list_size(global.plantas_escolhidas) > 0)
+{
+    // Inicia a fase
+    global.fase_iniciada = true;
+
+    // ========================================================
+    // DESTRÓI TODOS OS CARDS DE SELEÇÃO
+    // ========================================================
+
+    if (instance_exists(obj_card_disparervilha))
+    {
+        with (obj_card_disparervilha)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_girassol))
+    {
+        with (obj_card_girassol)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_triplervilha))
+    {
+        with (obj_card_triplervilha)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_espinhoguiado))
+    {
+        with (obj_card_espinhoguiado)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_enroscacovas))
+    {
+        with (obj_card_enroscacovas)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_veudenoiva))
+    {
+        with (obj_card_veudenoiva)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_covaceps))
+    {
+        with (obj_card_covaceps)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_noz))
+    {
+        with (obj_card_noz)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_duplervilha))
+    {
+        with (obj_card_duplervilha)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_ervaespinho))
+    {
+        with (obj_card_ervaespinho)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_batatamina))
+    {
+        with (obj_card_batatamina)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_esparabalde))
+    {
+        with (obj_card_esparabalde)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_morcegarrador))
+    {
+        with (obj_card_morcegarrador)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_brotoflorescedor))
+    {
+        with (obj_card_brotoflorescedor)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_trepaervilha))
+    {
+        with (obj_card_trepaervilha)
+        {
+            instance_destroy();
+        }
+    }
+
+    if (instance_exists(obj_card_repelecao))
+    {
+        with (obj_card_repelecao)
+        {
+            instance_destroy();
+        }
+    }
+
+    // ========================================================
+    // DESTRÓI O PRÓPRIO BOTÃO "JÁ"
+    // ========================================================
+
     instance_destroy();
 }
+else
+{
+    // ========================================================
+    // NENHUMA PLANTA ESCOLHIDA
+    // NÃO DESTRÓI NADA
+    // ========================================================
 
-// Destrói o card do Girassol (se ele existir na tela)
-if (instance_exists(obj_card_girassol)) {
-    with (obj_card_girassol) {
-        instance_destroy();
-    }
-}
-if (instance_exists(obj_card_triplervilha)) {
-    with (obj_card_triplervilha) {
-        instance_destroy();
-    }
-}
-if (instance_exists(obj_card_espinhoguiado)) {
-    with (obj_card_espinhoguiado) {
-        instance_destroy();
-    }
-}
-if (instance_exists(obj_card_enroscacovas)) {
-    with (obj_card_enroscacovas) {
-        instance_destroy();
-    }
-}
-// Destrói o card do Girassol (se ele existir na tela)
-if (instance_exists(obj_card_veudenoiva)) {
-    with (obj_card_veudenoiva) {
-        instance_destroy();
-    }
-}
-if (instance_exists(obj_card_covaceps)) {
-    with (obj_card_covaceps) {
-        instance_destroy();
-    }
-}
+    image_alpha = 1;
 
-// Destrói o card da Noz (se ele existir na tela)
-if (instance_exists(obj_card_noz)) {
-    with (obj_card_noz) {
-        instance_destroy();
-    }
-}
-// Destrói o card da Noz (se ele existir na tela)
-if (instance_exists(obj_card_duplervilha)) {
-    with (obj_card_duplervilha) {
-        instance_destroy();
-    }
-}
+    global.fase_iniciada = false;
 
-
-// Destrói o card da Erva-Espinho (se ele existir na tela)
-if (instance_exists(obj_card_ervaespinho)) {
-    with (obj_card_ervaespinho) {
-        instance_destroy();
-    }
+    show_debug_message("Selecione pelo menos uma planta!");
 }
-
-// NOVO: Destrói o card da Batata-mina (se ele existir na tela)
-if (instance_exists(obj_card_batatamina)) {
-    with (obj_card_batatamina) {
-        instance_destroy();
-    }
-}
-// Destrói o card do Girassol (se ele existir na tela)
-if (instance_exists(obj_card_esparabalde)) {
-    with (obj_card_esparabalde) {
-        instance_destroy();
-    }
-}
-if (instance_exists(obj_card_morcegarrador)) {
-    with (obj_card_morcegarrador) {
-        instance_destroy();
-    }
-}
-if (instance_exists(obj_card_brotoflorescedor)) {
-    with (obj_card_brotoflorescedor) {
-        instance_destroy();
-    }
-}
-if (instance_exists(obj_card_trepaervilha)) {
-    with (obj_card_trepaervilha) {
-        instance_destroy();
-    }
-}
-// Destrói o card do Girassol (se ele existir na tela)
-if (instance_exists(obj_card_repelecao)) {
-    with (obj_card_repelecao) {
-        instance_destroy();
-    }
-}
-
-// 3. Destrói o próprio botão "JÁ", limpando a interface
-instance_destroy();
