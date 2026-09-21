@@ -1,6 +1,6 @@
 // 1. Desenha a quantidade atual de Sóis no topo
 draw_set_color(c_yellow);
-draw_text(30, 20, "SÓIS: " + string(global.sois));
+draw_text(50, 20, "________" + string(global.sois));
 
 // 2. Texto explicativo antes da fase iniciar
 if (!global.fase_iniciada) {
