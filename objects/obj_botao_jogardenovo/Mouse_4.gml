@@ -1,1 +1,3 @@
-room_goto(Room_fases_planta); // Retorna para reiniciar a seleção e a fase
+image_alpha = 0.6;
+
+alarm[0] = 7;
