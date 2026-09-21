@@ -11,8 +11,8 @@
   "name":"obj_card_enroscacovas",
   "overriddenProperties":[],
   "parent":{
-    "name":"Plants VS Zombies Elemental",
-    "path":"Plants VS Zombies Elemental.yyp",
+    "name":"Cards_de_plantas",
+    "path":"folders/Sistema/Cards_de_plantas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

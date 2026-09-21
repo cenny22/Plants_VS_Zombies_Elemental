@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"boss",
   "parent":{
-    "name":"Plants VS Zombies Elemental",
-    "path":"Plants VS Zombies Elemental.yyp",
+    "name":"group1",
+    "path":"folders/Sons/group1.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

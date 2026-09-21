@@ -8,8 +8,8 @@
   "name":"obj_botao_jogardenovo",
   "overriddenProperties":[],
   "parent":{
-    "name":"Plants VS Zombies Elemental",
-    "path":"Plants VS Zombies Elemental.yyp",
+    "name":"Botoes_do_sistema",
+    "path":"folders/Sistema/Botoes/Botoes_do_sistema.yy",
   },
   "parentObjectId":null,
   "persistent":false,

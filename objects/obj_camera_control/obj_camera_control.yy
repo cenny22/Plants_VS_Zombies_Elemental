@@ -9,8 +9,8 @@
   "name":"obj_camera_control",
   "overriddenProperties":[],
   "parent":{
-    "name":"Plants VS Zombies Elemental",
-    "path":"Plants VS Zombies Elemental.yyp",
+    "name":"Sistema",
+    "path":"folders/Sistema.yy",
   },
   "parentObjectId":null,
   "persistent":false,

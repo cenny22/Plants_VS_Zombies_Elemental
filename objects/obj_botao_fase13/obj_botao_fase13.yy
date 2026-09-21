@@ -9,8 +9,8 @@
   "name":"obj_botao_fase13",
   "overriddenProperties":[],
   "parent":{
-    "name":"Plants VS Zombies Elemental",
-    "path":"Plants VS Zombies Elemental.yyp",
+    "name":"Botoes_das_fases",
+    "path":"folders/Sistema/Botoes/Botoes_das_fases.yy",
   },
   "parentObjectId":null,
   "persistent":false,

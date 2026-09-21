@@ -12,8 +12,8 @@
   "name":"obj_controlador_geral",
   "overriddenProperties":[],
   "parent":{
-    "name":"Plants VS Zombies Elemental",
-    "path":"Plants VS Zombies Elemental.yyp",
+    "name":"Sistema",
+    "path":"folders/Sistema.yy",
   },
   "parentObjectId":null,
   "persistent":true,

@@ -13,8 +13,8 @@
   "name":"obj_controlador_fase18",
   "overriddenProperties":[],
   "parent":{
-    "name":"Plants VS Zombies Elemental",
-    "path":"Plants VS Zombies Elemental.yyp",
+    "name":"controladores_de_fases",
+    "path":"folders/Sistema/controladores_de_fases.yy",
   },
   "parentObjectId":null,
   "persistent":false,
