@@ -6,10 +6,6 @@
 
 #region 1. SEGURANÇA E INICIALIZAÇÃO
 
-// Garante que o quadrado começa livre
-ocupado = false;
-
-
 // ------------------------------------------------------------
 // CHECAGEM DE SEGURANÇA — VARIÁVEIS GLOBAIS
 // ------------------------------------------------------------

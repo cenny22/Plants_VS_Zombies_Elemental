@@ -1,1 +1,2 @@
 ocupado = false; // Diz se já tem uma planta aqui ou não
+
