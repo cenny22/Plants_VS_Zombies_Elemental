@@ -98,6 +98,11 @@ if (
         nome_obj = object_get_name(obj_para_criar);
     }
 
+    var planta = planta_obter_por_objeto(obj_para_criar);
+    if (is_undefined(planta)) {
+        exit;
+    }
+
 #endregion
 
 
@@ -110,7 +115,7 @@ if (
             instance_position(x, y, obj_cova_sono);
 
         var custo_covaceps =
-            e_fase_esteira ? 0 : 50;
+            e_fase_esteira ? 0 : planta.custo;
 
 
         if (
@@ -189,8 +194,8 @@ if (
                 }
                 else if (!e_fase_esteira)
                 {
-                    global.barra_selecionada.tempo_cooldown_max = 90.0;
-                    global.barra_selecionada.tempo_cooldown_atual = 90.0;
+                    global.barra_selecionada.tempo_cooldown_max = planta.recarga;
+                    global.barra_selecionada.tempo_cooldown_atual = planta.recarga;
                     global.barra_selecionada.em_cooldown = true;
                 }
             }
@@ -217,7 +222,7 @@ if (
             instance_position(x, y, obj_cova_sono);
 
         var custo_enroscacovas =
-            e_fase_esteira ? 0 : 50;
+            e_fase_esteira ? 0 : planta.custo;
 
 
         if (
@@ -296,8 +301,8 @@ if (
                 }
                 else if (!e_fase_esteira)
                 {
-                    global.barra_selecionada.tempo_cooldown_max = 20.0;
-                    global.barra_selecionada.tempo_cooldown_atual = 20.0;
+                    global.barra_selecionada.tempo_cooldown_max = planta.recarga;
+                    global.barra_selecionada.tempo_cooldown_atual = planta.recarga;
                     global.barra_selecionada.em_cooldown = true;
                 }
             }
@@ -331,102 +336,8 @@ if (
         )
         {
             
-            var custo_planta = 0;
-            var tempo_recarga = 7.5;
-
-
-            #region 7.1 CUSTO E RECARGA
-
-            if (!e_fase_esteira)
-            {
-                
-                if (
-                    nome_obj == "obj_disparervilha"
-                    || nome_obj == "obj_disparaervilha"
-                )
-                {
-                    custo_planta = 100;
-                    tempo_recarga = 7.5;
-                }
-
-                else if (nome_obj == "obj_girassol")
-                {
-                    custo_planta = 50;
-                    tempo_recarga = 7.5;
-                }
-
-                else if (nome_obj == "obj_noz_obstaculo")
-                {
-                    custo_planta = 50;
-                    tempo_recarga = 15.0;
-                }
-
-                else if (nome_obj == "obj_ervaespinho")
-                {
-                    custo_planta = 100;
-                    tempo_recarga = 7.5;
-                }
-
-                else if (nome_obj == "obj_batatamina")
-                {
-                    custo_planta = 25;
-                    tempo_recarga = 20.0;
-                }
-
-                else if (nome_obj == "obj_esparabalde")
-                {
-                    custo_planta = 75;
-                    tempo_recarga = 15.0;
-                }
-
-                else if (nome_obj == "obj_repepe_cao")
-                {
-                    custo_planta = 75;
-                    tempo_recarga = 15.0;
-                }
-
-                else if (nome_obj == "obj_duplervilha")
-                {
-                    custo_planta = 175;
-                    tempo_recarga = 10.0;
-                }
-
-                else if (nome_obj == "obj_brotoflorescedor")
-                {
-                    custo_planta = 75;
-                    tempo_recarga = 5.0;
-                }
-
-                else if (nome_obj == "obj_veudenoiva")
-                {
-                    custo_planta = 150;
-                    tempo_recarga = 7.5;
-                }
-
-                else if (nome_obj == "obj_morcegarrador")
-                {
-                    custo_planta = 100;
-                    tempo_recarga = 40.0;
-                }
-
-                else if (nome_obj == "obj_triplervilha")
-                {
-                    custo_planta = 275;
-                    tempo_recarga = 15.0;
-                }
-
-                else if (nome_obj == "obj_espinhoguiado")
-                {
-                    custo_planta = 250;
-                    tempo_recarga = 15.0;
-                }
-
-                else if (nome_obj == "obj_trepaervilha")
-                {
-                    custo_planta = 125;
-                    tempo_recarga = 15.0;
-                }
-            }
+            var custo_planta = planta.custo;
+            var tempo_recarga = planta.recarga;
 
             #endregion
 

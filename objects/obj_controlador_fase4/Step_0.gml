@@ -23,24 +23,13 @@ if (global.fase_iniciada == true) {
 // ====================================================================
 // 2. CONDIÇÃO DE VITÓRIA DA FASE
 // ====================================================================
-if (!variable_global_exists("zumbis_mortos")) {
-    global.zumbis_mortos = 0;
-}
-
 if (global.zumbis_mortos >= total_fase) {
     if (global.fase_iniciada == true) { 
-        
-        // Se a variável por acaso não existir, cria ela
-        if (!variable_global_exists("vitorias")) {
-            global.vitorias = 0;
-        }
-        
         // ADICIONA 1 VITÓRIA AO CONTADOR GLOBAL
         global.vitorias += 1; 
         
         alarm[1] = -1;  // Desliga o gerador de zumbis
         global.fase_iniciada = false;
-		
         ds_map_replace(global.plantas_liberadas, "batatamina", true);
         room_goto(Room_fases_planta); // Volta para o menu
     }

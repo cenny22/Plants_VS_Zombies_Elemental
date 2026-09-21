@@ -222,6 +222,7 @@
     {"id":{"name":"Room_mapas","path":"rooms/Room_mapas/Room_mapas.yy",},},
     {"id":{"name":"Room_menu","path":"rooms/Room_menu/Room_menu.yy",},},
     {"id":{"name":"levar_dano","path":"scripts/levar_dano/levar_dano.yy",},},
+    {"id":{"name":"plantas_catalogo","path":"scripts/plantas_catalogo/plantas_catalogo.yy",},},
     {"id":{"name":"boss","path":"sounds/boss/boss.yy",},},
     {"id":{"name":"Esteira","path":"sounds/Esteira/Esteira.yy",},},
     {"id":{"name":"F_planta","path":"sounds/F_planta/F_planta.yy",},},

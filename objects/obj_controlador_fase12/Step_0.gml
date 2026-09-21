@@ -34,10 +34,6 @@ if (global.sois >= meta_sois && !fase_concluida) {
         
         fase_concluida = true; // Evita executar este bloco várias vezes
         
-        if (!variable_global_exists("vitorias")) {
-            global.vitorias = 0;
-        }
-        
         // ADICIONA 1 VITÓRIA AO CONTADOR GLOBAL
         global.vitorias += 1; 
         

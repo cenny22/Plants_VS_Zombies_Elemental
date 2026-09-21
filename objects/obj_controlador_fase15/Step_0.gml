@@ -68,7 +68,7 @@ if (global.zumbis_mortos >= total_fase) {
     alarm[1] = -1; // Garante que o spawn continue parado
     global.fase_iniciada = false;
     global.modo_esteira = false;
-	global.vitorias ++
+	global.vitorias += 1;
     global.zumbis_mortos = 0;
     ds_map_replace(global.plantas_liberadas, "veudenoiva", true); 
     room_goto(Room_fases_planta);

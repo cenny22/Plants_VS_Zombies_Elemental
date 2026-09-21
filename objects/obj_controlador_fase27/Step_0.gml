@@ -27,11 +27,7 @@ if (global.fase_iniciada == true) {
 // ====================================================================
 if (global.zumbis_mortos >= total_fase) {
     if (global.fase_iniciada == true) { 
-        
-        if (!variable_global_exists("vitorias")) {
-            global.vitorias = 0;
-        }
-        
+		
         // ADICIONA 1 VITÓRIA AO CONTADOR GLOBAL
         global.vitorias += 1; 
         

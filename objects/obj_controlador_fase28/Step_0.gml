@@ -38,11 +38,7 @@ if (global.fase_iniciada) {
 // ====================================================================
 if (global.zumbis_mortos >= total_fase) {
     if (global.fase_iniciada) { 
-        
-        if (!variable_global_exists("vitorias")) {
-            global.vitorias = 0;
-        }
-        
+
         global.vitorias += 1; 
         
         alarm[1] = -1; // Desliga o gerador de zumbis

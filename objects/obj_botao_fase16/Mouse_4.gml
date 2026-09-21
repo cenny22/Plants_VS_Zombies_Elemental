@@ -1,6 +1,3 @@
-if (!variable_global_exists("vitorias")) {
-    global.vitorias = 0;
-}
 
 if (global.vitorias >= 15) {
     room_goto(Room_fase16_planta);

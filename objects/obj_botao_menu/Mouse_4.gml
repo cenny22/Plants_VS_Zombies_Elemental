@@ -8,7 +8,7 @@ else if (tipo == "mapa_planta") {
 } 
 // ADICIONE DAQUI PARA BAIXO:
 else if (tipo == "fase_2") {
-    if (!variable_global_exists("vitorias")) { global.vitorias = 0; }
+  
 
     if (global.vitorias >= 1) {
         room_goto(Room_fase2_planta); 

@@ -13,30 +13,6 @@ if (!variable_global_exists("vitorias")) {
 if (!variable_global_exists("plantas_escolhidas") || !ds_exists(global.plantas_escolhidas, ds_type_list)) {
     global.plantas_escolhidas = ds_list_create();
 }
-// Garantir que o mapa/lista de plantas liberadas exista
-if (!variable_global_exists("plantas_liberadas")) {
-    global.plantas_liberadas = ds_map_create();
-    
-    // Plantas iniciais liberadas por padrão
-    ds_map_add(global.plantas_liberadas, "disparervilha", 1);
-	ds_map_add(global.plantas_liberadas, "girassol",0);
-    ds_map_add(global.plantas_liberadas, "noz", 0)
-    ds_map_add(global.plantas_liberadas, "ervaespinho", 0);
-    ds_map_add(global.plantas_liberadas, "batatamina", 0);
-    ds_map_add(global.plantas_liberadas, "esparabalde", 0);
-    ds_map_add(global.plantas_liberadas, "repelecao",0);
-    ds_map_add(global.plantas_liberadas, "duplervilha",0);
-    ds_map_add(global.plantas_liberadas, "covaceps",0);
-    ds_map_add(global.plantas_liberadas, "veudenoiva",0);
-    ds_map_add(global.plantas_liberadas, "broto",0);
-    ds_map_add(global.plantas_liberadas, "morcegarrador",0);
-	ds_map_add(global.plantas_liberadas, "enroscacovas",0);
-	ds_map_add(global.plantas_liberadas, "triplervilha", 0);
-	ds_map_add(global.plantas_liberadas, "espinhoguiado", 0);
-	ds_map_add(global.plantas_liberadas, "trepaervilha", 0);
-}
-
-// Lista onde o jogador vai colocar até 7 plantas escolhidas
-if (!variable_global_exists("plantas_escolhidas")) {
-    global.plantas_escolhidas = ds_list_create();
-}
+// Catálogo e desbloqueios vivem em um único lugar.
+global.plantas = plantas_criar_catalogo();
+plantas_inicializar_desbloqueios();

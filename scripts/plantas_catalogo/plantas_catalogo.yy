@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"plantas_catalogo",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"plantas_catalogo",
+  "parent":{
+    "name":"Sistema",
+    "path":"folders/Sistema.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

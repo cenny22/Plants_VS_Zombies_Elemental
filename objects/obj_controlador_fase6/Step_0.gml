@@ -2,9 +2,6 @@
 if (!variable_global_exists("fase_iniciada")) {
     global.fase_iniciada = false;
 }
-if (!variable_global_exists("vitorias")) {
-    global.vitorias = 0; // Padronizado com o botão da fase 5!
-}
 
 // ====================================================================
 // 1. ATIVAÇÃO DOS CRONÔMETROS (Garante que só roda UMA VEZ no início)
@@ -30,13 +27,7 @@ if (global.fase_iniciada == true) {
 // CONDIÇÃO DE VITÓRIA DA FASE (PADRONIZADO)
 // ====================================================================
 if (global.zumbis_mortos >= total_fase) {
-    if (global.fase_iniciada == true) { 
-        
-        // Se a variável por acaso não existir, cria ela
-        if (!variable_global_exists("vitorias")) {
-            global.vitorias = 0;
-        }
-        
+    if (global.fase_iniciada == true) {        
         // ADICIONA 1 VITÓRIA AO CONTADOR GLOBAL
         global.vitorias += 1; 
         
