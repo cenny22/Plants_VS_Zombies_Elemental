@@ -5,7 +5,7 @@
   "option_operagx_display_cursor":true,
   "option_operagx_editUrl":"https://dev.gx.games/games/09951ee8-f2dc-445d-802d-35d8c7ee9459/details",
   "option_operagx_game_name":"pvz ELEMNTAL DEMO",
-  "option_operagx_guid":"09951ee8-f2dc-445d-802d-35d8c7ee9459",
+  "option_operagx_guid":"",
   "option_operagx_internalShareUrl":"https://gx.games/games/r2o4t9/pvz-elemntal-demo/tracks/aaea9707-e09b-420f-93d7-d8d454fe8c3a/",
   "option_operagx_interpolate_pixels":false,
   "option_operagx_mod_editUrl":"",

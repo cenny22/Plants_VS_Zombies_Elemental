@@ -43,13 +43,13 @@ if (zumbi_baixo != noone || (arbusto_baixo != noone && arbusto_baixo.estado == "
 // ====================================================================
 if (zumbi_na_linha && pode_atirar) {
     // Tiro da fileira de CIMA
-    instance_create_layer(x + 20, y - distancia_fileira, "Instances", obj_ervilha);
+    instance_create_layer(x + 20, y - distancia_fileira, "Instances", obj_ervilha_fogo);
     
     // Tiro da fileira do MEIO (Atual)
-    instance_create_layer(x + 20, y, "Instances", obj_ervilha);
+    instance_create_layer(x + 20, y, "Instances", obj_ervilha_fogo);
     
     // Tiro da fileira de BAIXO
-    instance_create_layer(x + 20, y + distancia_fileira, "Instances", obj_ervilha);
+    instance_create_layer(x + 20, y + distancia_fileira, "Instances", obj_ervilha_fogo);
     
     pode_atirar = false;
     alarm[0] = game_get_speed(gamespeed_fps) * 1.5;
