@@ -1,0 +1,10 @@
+Para Adcionar uma nova plata a esse projeto:
+
+1. Criar um novo obj de planta, tipo o obj_disparervilha
+
+2. Criar um obj do card da planta.
+
+3. Vai no script Plantas_catalogo e adciona:
+	nome da planta, seu objeto, seu obj card, seu custo, sua recarga, e se é desbloqueada no início.
+	
+	4. Ir no draw do obj_barra_laterial e por mais um else if.

@@ -32,6 +32,7 @@
   "resources":[
     {"id":{"name":"fnt_cool","path":"fonts/fnt_cool/fnt_cool.yy",},},
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
+    {"id":{"name":"Como criar uma planta","path":"notes/Como criar uma planta/Como criar uma planta.yy",},},
     {"id":{"name":"obj_back_1","path":"objects/obj_back_1/obj_back_1.yy",},},
     {"id":{"name":"obj_back","path":"objects/obj_back/obj_back.yy",},},
     {"id":{"name":"obj_barra_lateral","path":"objects/obj_barra_lateral/obj_barra_lateral.yy",},},
