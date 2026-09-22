@@ -70,3 +70,26 @@ else
 {
 	image_alpha = 1
 }
+
+// ============================================================
+// FOGO — MOVIMENTO DAS PARTICULAS
+// ============================================================
+
+if (fogo == true)
+{
+    for (var i = 0; i < array_length(fogo_particulas); i++)
+    {
+        fogo_particulas[i].y -= fogo_particulas[i].velocidade;
+        fogo_particulas[i].vida--;
+
+        // Quando a partícula termina, nasce novamente no topo
+        if (fogo_particulas[i].vida <= 0)
+        {
+            fogo_particulas[i].x = random_range(-sprite_width * 0.35, sprite_width * 0.35);
+            fogo_particulas[i].y = random_range(-sprite_height * 0.5, -sprite_height * 0.35);
+            fogo_particulas[i].velocidade = random_range(0.3, 0.7);
+            fogo_particulas[i].tamanho = random_range(3, 6);
+            fogo_particulas[i].vida = random_range(20, 45);
+        }
+    }
+}
