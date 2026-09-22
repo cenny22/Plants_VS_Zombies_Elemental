@@ -1,3 +1,11 @@
+if (fogo)
+{
+	alarm[1] = 60
+}
+else
+{
+	alarm[1] = -1;
+}
 // 1. SE ESTIVER PARALISADO
 if (paralisado) {
     speed = 0;
