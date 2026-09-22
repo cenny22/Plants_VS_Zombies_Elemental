@@ -88,6 +88,7 @@ else
 {
     sprite_index = -1;
 }
+
 // ============================================================
 // DESENHO
 // ============================================================
@@ -104,9 +105,6 @@ if (sprite_index != -1)
 
     // --------------------------------------------------------
     // QUADRADO DA PLANTA
-    // --------------------------------------------------------
-    // O sprite está com Origin = Middle Centre
-    // Então x/y são exatamente o centro.
     // --------------------------------------------------------
 
     draw_sprite_ext(
@@ -132,21 +130,38 @@ if (sprite_index != -1)
     // --------------------------------------------------------
     // PLANTA
     // --------------------------------------------------------
-    // Middle Centre:
-    // a planta nasce exatamente no centro do quadrado.
-    // --------------------------------------------------------
 
     draw_sprite_ext(
         sprite_index,
         image_index,
-        x,
-        y,
+        x + (sprite_get_xoffset(sprite_index) - sprite_get_width(sprite_index) / 2) * tamanho_planta,
+        y + (sprite_get_yoffset(sprite_index) - sprite_get_height(sprite_index) / 2) * tamanho_planta,
         tamanho_planta,
         tamanho_planta,
         image_angle,
         image_blend,
         image_alpha
     );
+	// ============================================================
+// PLANTA SELECIONADA
+// ============================================================
+
+if (global.barra_selecionada == id)
+{
+    // Borda de seleção
+    draw_set_color(c_yellow);
+    draw_set_alpha(1);
+
+    draw_rectangle(
+        x - (sprite_get_width(spr_quadrado_plantas) * 1.12) / 2,
+        y - (sprite_get_height(spr_quadrado_plantas) * 1.08) / 2,
+        x + (sprite_get_width(spr_quadrado_plantas) * 1.12) / 2,
+        y + (sprite_get_height(spr_quadrado_plantas) * 1.08) / 2,
+        true
+    );
+
+    draw_set_color(c_white);
+}
 
 
     // ========================================================
@@ -157,28 +172,38 @@ if (sprite_index != -1)
     {
         var porcentagem = tempo_cooldown_atual / tempo_cooldown_max;
 
-        draw_set_color(c_black);
-        draw_set_alpha(0.6 * porcentagem);
+        // ----------------------------------------------------
+        // ESCURECE O QUADRADO INTEIRO
+        // ----------------------------------------------------
 
-        draw_rectangle(
-            bbox_left,
-            bbox_top,
-            bbox_right,
-            bbox_bottom,
-            false
+        draw_sprite_ext(
+            spr_quadrado_plantas,
+            0,
+            x,
+            y,
+            quadrado_escala_x,
+            quadrado_escala_y,
+            0,
+            c_black,
+            0.65 * porcentagem
         );
 
-        draw_set_alpha(1.0);
+
+        // ----------------------------------------------------
+        // TEMPO DO COOLDOWN
+        // ----------------------------------------------------
 
         draw_set_color(c_white);
+        draw_set_alpha(1);
+
         draw_set_font(fnt_menu);
 
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
 
         draw_text(
-            (bbox_left + bbox_right) / 2,
-            (bbox_top + bbox_bottom) / 2,
+            x,
+            y,
             string_format(
                 tempo_cooldown_atual,
                 1,
@@ -190,6 +215,7 @@ if (sprite_index != -1)
         draw_set_valign(fa_top);
     }
 }
+
 // ============================================================
 // RESTAURA CONFIGURAÇÕES
 // ============================================================

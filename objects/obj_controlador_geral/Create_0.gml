@@ -16,3 +16,5 @@ if (!variable_global_exists("plantas_escolhidas") || !ds_exists(global.plantas_e
 // Catálogo e desbloqueios vivem em um único lugar.
 global.plantas = plantas_criar_catalogo();
 plantas_inicializar_desbloqueios();
+
+global.barra_selecionada = noone;

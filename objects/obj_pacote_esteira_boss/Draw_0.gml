@@ -1,5 +1,3 @@
-draw_self();
-
 // Ajuste dos sprites baseados no tipo de planta
 if (planta_tipo == "disparervilha") sprite_index = Sprite14;
 else if (planta_tipo == "noz") sprite_index = Sprite23;
@@ -16,3 +14,5 @@ else if (planta_tipo == "enroscacovas") sprite_index = Sprite105;
 else if (planta_tipo == "triplervilha") sprite_index = Sprite113;
 else if (planta_tipo == "espinhoguiado") sprite_index = Sprite122;
 else if (planta_tipo == "trepaervilha") sprite_index = Sprite130;
+
+draw_self();

@@ -1,6 +1,3 @@
-// Desenha a sprite do card baseada no tipo de planta
-draw_self();
-
 // Ajuste os nomes dos sprites para corresponderem aos seus assets
 if (planta_tipo == "disparervilha") sprite_index = Sprite14;
 else if (planta_tipo == "covaceps") sprite_index = Sprite75;
@@ -10,3 +7,5 @@ else if (planta_tipo == "duplervilha") sprite_index = Sprite6_2;
 else if (planta_tipo == "ervaespinho") sprite_index = spr_ervaespinho;
 else if (planta_tipo == "repelecao") sprite_index = spr_repele_cao;
 else if (planta_tipo == "esparabalde") sprite_index = Sprite32;
+
+draw_self();
