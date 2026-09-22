@@ -31,7 +31,7 @@ if (zumbi_arbusto != noone && zumbi_arbusto.estado == "comendo") {
 // ====================================================================
 // Só atira se tiver zumbi na linha E se a planta não estiver na espera do alarme
 if (zumbi_na_linha && pode_atirar) {
-    instance_create_layer(x + 20, y, "Instances", obj_ervilha);
+    instance_create_layer(x + 20, y, "Instances", obj_ervilha_fogo);
     pode_atirar = false;
     alarm[0] = room_speed * 1.5; // 1.5 segundos de intervalo para poder atirar de novo
 }

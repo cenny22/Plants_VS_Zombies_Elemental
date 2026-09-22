@@ -1,2 +1,3 @@
-other.levar_dano(40); // Tira 20 de HP do zumbi atingido
+other.hp -= 40; // Tira 20 de HP do zumbi atingido
+other.pisk = 10;
 instance_destroy(); // Destrói a ervilha

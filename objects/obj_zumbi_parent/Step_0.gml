@@ -30,7 +30,7 @@ else {
             danos_timer = 0;       
         }
     } else {
-        speed = vel; // Define a velocidade de andar
+        speed = vel + con; // Define a velocidade de andar
         atacadoread = noone; 
     }
 }
@@ -69,4 +69,14 @@ if (pisk > 0)
 else
 {
 	image_alpha = 1
+}
+var azul_claro = make_color_rgb(135, 206, 250);
+
+if(con > 0)
+{
+	image_blend = azul_claro
+}
+else
+{
+	image_blend = c_white
 }

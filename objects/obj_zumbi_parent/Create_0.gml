@@ -1,6 +1,7 @@
 hp = 100;
 vel = -0.3;
 atacadoread = noone;
+con = 0;
 danos_timer = 0;
 
 // Variáveis de Paralisia

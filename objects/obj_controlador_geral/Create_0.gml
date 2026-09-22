@@ -1,4 +1,4 @@
-// Coloque no Create do obj_controlador_fase (ou no Game Start)
+global.pa_selecionada = false;
 randomize(); // Força o GameMaker a gerar uma semente totalmente nova a cada execução
 //====================================================================
 // CONTROLADOR GERAL DE SALVAMENTO E PROGRESSO

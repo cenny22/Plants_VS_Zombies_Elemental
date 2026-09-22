@@ -26,7 +26,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"Plants VS Zombies Elemental",
   "resources":[
@@ -132,6 +132,7 @@
     {"id":{"name":"obj_enroscacovas","path":"objects/obj_enroscacovas/obj_enroscacovas.yy",},},
     {"id":{"name":"obj_ervaespinho","path":"objects/obj_ervaespinho/obj_ervaespinho.yy",},},
     {"id":{"name":"obj_ervilha_fogo","path":"objects/obj_ervilha_fogo/obj_ervilha_fogo.yy",},},
+    {"id":{"name":"obj_ervilha_frio","path":"objects/obj_ervilha_frio/obj_ervilha_frio.yy",},},
     {"id":{"name":"obj_ervilha_zumbi","path":"objects/obj_ervilha_zumbi/obj_ervilha_zumbi.yy",},},
     {"id":{"name":"obj_ervilha","path":"objects/obj_ervilha/obj_ervilha.yy",},},
     {"id":{"name":"obj_esparabalde","path":"objects/obj_esparabalde/obj_esparabalde.yy",},},
@@ -290,6 +291,7 @@
     {"id":{"name":"Sprite_jardineira_giras","path":"sprites/Sprite_jardineira_giras/Sprite_jardineira_giras.yy",},},
     {"id":{"name":"Sprite_jardineira_noze","path":"sprites/Sprite_jardineira_noze/Sprite_jardineira_noze.yy",},},
     {"id":{"name":"Sprite_noz","path":"sprites/Sprite_noz/Sprite_noz.yy",},},
+    {"id":{"name":"Sprite_pa","path":"sprites/Sprite_pa/Sprite_pa.yy",},},
     {"id":{"name":"Sprite_planta","path":"sprites/Sprite_planta/Sprite_planta.yy",},},
     {"id":{"name":"Sprite_shooter","path":"sprites/Sprite_shooter/Sprite_shooter.yy",},},
     {"id":{"name":"Sprite_sol","path":"sprites/Sprite_sol/Sprite_sol.yy",},},
@@ -363,6 +365,7 @@
     {"id":{"name":"Sprite94","path":"sprites/Sprite94/Sprite94.yy",},},
     {"id":{"name":"Sprite95","path":"sprites/Sprite95/Sprite95.yy",},},
     {"id":{"name":"Sprite99","path":"sprites/Sprite99/Sprite99.yy",},},
+    {"id":{"name":"Spriteglwlijlfjwe","path":"sprites/Spriteglwlijlfjwe/Spriteglwlijlfjwe.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
