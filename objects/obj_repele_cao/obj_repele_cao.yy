@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_repepe_cao",
+  "%Name":"obj_repele_cao",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_repepe_cao",
+  "name":"obj_repele_cao",
   "overriddenProperties":[],
   "parent":{
     "name":"Plants VS Zombies Elemental",
@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite50_1",
-    "path":"sprites/Sprite50_1/Sprite50_1.yy",
+    "name":"spr_repele_cao_ani",
+    "path":"sprites/spr_repele_cao_ani/spr_repele_cao_ani.yy",
   },
   "spriteMaskId":null,
   "visible":true,

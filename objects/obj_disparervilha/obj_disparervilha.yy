@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite6_1",
-    "path":"sprites/Sprite6_1/Sprite6_1.yy",
+    "name":"spr_disparervilha",
+    "path":"sprites/spr_disparervilha/spr_disparervilha.yy",
   },
   "spriteMaskId":null,
   "visible":true,

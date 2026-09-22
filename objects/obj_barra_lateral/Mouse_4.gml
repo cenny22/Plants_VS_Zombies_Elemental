@@ -11,7 +11,7 @@ if (global.fase_iniciada) {
         var objeto_real = asset_get_index("obj_" + nome_planta);
 
         if (nome_planta == "noz")         objeto_real = obj_noz_obstaculo;
-        if (nome_planta == "repelecao")   objeto_real = obj_repepe_cao;
+        if (nome_planta == "repelecao")   objeto_real = obj_repele_cao;
 		if (nome_planta == "broto") objeto_real = obj_brotoflorescedor;		if (nome_planta == "covaceps") objeto_real = obj_covaceps;
 		if (nome_planta == "enroscacovas") objeto_real = obj_enroscacovas;
 		if (nome_planta == "espinhoguiado") objeto_real = obj_espinhoguiado;

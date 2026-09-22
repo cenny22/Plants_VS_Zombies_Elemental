@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite36",
-    "path":"sprites/Sprite36/Sprite36.yy",
+    "name":"spr_batatamina_n_pronta",
+    "path":"sprites/spr_batatamina_n_pronta/spr_batatamina_n_pronta.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -1,7 +1,7 @@
 nome_planta = "disparervilha"; 
 planta_tipo = "disparervilha";
 custo = 100;
-sprite_planta = Sprite6_1; 
+sprite_planta = spr_disparervilha; 
 ja_escolhida = false;
 
 // ==========================================================

@@ -1,7 +1,7 @@
 nome_planta = "Repele-cao"; // Texto que vai aparecer desenhado no card
 planta_tipo = "repelecao";
 custo = 75;
-sprite_planta = Sprite50; 
+sprite_planta = spr_repele_cao; 
 ja_escolhida = false;
 // ==========================================================
 // CONTROLE DE COOLDOWN

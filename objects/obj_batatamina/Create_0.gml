@@ -10,4 +10,4 @@ esta_carregada = false;
 alarm[0] = room_speed * 6; 
 
 // Define a sprite inicial (ela enterrada)
-sprite_index = Sprite36;
+sprite_index = spr_batatamina_n_pronta;
