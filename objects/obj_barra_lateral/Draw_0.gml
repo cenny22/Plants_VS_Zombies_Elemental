@@ -215,7 +215,20 @@ if (global.barra_selecionada == id)
         draw_set_valign(fa_top);
     }
 }
-
+if (global.barra_selecionada == id)
+{
+    draw_sprite_ext(
+        sprite_index,
+        image_index,
+        mouse_x,
+        mouse_y,
+        tamanho_planta,
+        tamanho_planta,
+        image_angle,
+        image_blend,
+        0.85
+    );
+}
 // ============================================================
 // RESTAURA CONFIGURAÇÕES
 // ============================================================

@@ -1,1 +1,18 @@
-alvo_y = irandom_range(100, 500); // Onde o sol vai parar de cair
+// ============================================================
+// SOL — CONFIGURAÇÃO GERAL
+// ============================================================
+
+depth = -1000000000000000000;
+
+alvo_y = irandom_range(100, 500);
+
+// ============================================================
+// SOL — CONFIGURAÇÃO DO GIRASSOL
+// ============================================================
+
+sol_do_girassol = false;
+
+altura_subida = 500;
+velocidade_sol = 1.2;
+y_inicial = y;
+fase_movimento = 2;

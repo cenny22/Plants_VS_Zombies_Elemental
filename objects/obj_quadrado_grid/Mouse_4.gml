@@ -20,6 +20,15 @@ if (!variable_global_exists("fase_iniciada"))
     global.fase_iniciada = true;
 }
 
+// ============================================================
+// AVISO — SÓIS INSUFICIENTES
+// ============================================================
+
+if (!variable_global_exists("global.aviso_sois_timer"))
+{
+    global.aviso_sois_timer = 0;
+}
+
 #endregion
 
 
@@ -428,7 +437,17 @@ if (
                 global.planta_selecionada = noone;
                 global.barra_selecionada = noone;
             }
+			else
+{
+    // ========================================================
+    // AVISO — SÓIS INSUFICIENTES
+    // ========================================================
 
+    if (!e_fase_esteira && global.sois < custo_planta)
+    {
+        global.aviso_sois_timer = 222;
+    }
+}
             #endregion
         }
     }

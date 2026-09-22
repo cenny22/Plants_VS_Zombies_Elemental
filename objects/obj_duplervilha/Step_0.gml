@@ -32,7 +32,7 @@ if (zumbi_arbusto != noone && zumbi_arbusto.estado == "comendo") {
 // Só atira se tiver zumbi na linha E se a planta não estiver na espera do alarme
 if (zumbi_na_linha && pode_atirar) {
     // 1. Cria a PRIMEIRA ervilha imediatamente
-    instance_create_layer(x + 20, y, "Instances", obj_ervilha);
+    instance_create_layer(x + 20, y - 50, "Instances", obj_ervilha);
     
     // Trava para não criar rajadas infinitas
     pode_atirar = false;
