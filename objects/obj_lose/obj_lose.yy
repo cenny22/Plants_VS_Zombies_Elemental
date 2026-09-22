@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite16",
-    "path":"sprites/Sprite16/Sprite16.yy",
+    "name":"spr_quadrado_plantas",
+    "path":"sprites/spr_quadrado_plantas/spr_quadrado_plantas.yy",
   },
   "spriteMaskId":null,
   "visible":false,

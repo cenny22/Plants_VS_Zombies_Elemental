@@ -1,6 +1,6 @@
 {
   "$GMSprite":"v2",
-  "%Name":"Sprite50",
+  "%Name":"spr_repele_cao",
   "bboxMode":0,
   "bbox_bottom":119,
   "bbox_left":12,
@@ -21,9 +21,9 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"4135e41d-d4a4-4275-8900-d9ce36e72aa3","blendMode":0,"displayName":"default","isLocked":false,"name":"4135e41d-d4a4-4275-8900-d9ce36e72aa3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"Sprite50",
+  "name":"spr_repele_cao",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Plants VS Zombies Elemental",
     "path":"Plants VS Zombies Elemental.yyp",
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"Sprite50",
+    "%Name":"spr_repele_cao",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"Sprite50",
+    "name":"spr_repele_cao",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,14 +69,14 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2352e840-2d75-4c44-90b3-d7b39b8ea80a","path":"sprites/Sprite50/Sprite50.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2352e840-2d75-4c44-90b3-d7b39b8ea80a","path":"sprites/spr_repele_cao/spr_repele_cao.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"d3e2b8cb-487c-4e18-8902-fe2a39356f41","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":63,
-    "yorigin":63,
+    "xorigin":59,
+    "yorigin":75,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

@@ -1,8 +1,8 @@
 // Esse código vai rodar sabendo exatamente o "tipo" que você configurou na Room
 if (tipo == "jogar") {
-    sprite_index = spr_botao_jogar; // Mude para o nome do seu sprite do menu
+    sprite_index = Sprite4;
 } else if (tipo == "config") {
-    sprite_index = spr_botao_config; // Mude para o nome do seu sprite de config
+    sprite_index = Sprite4;
 } else if (tipo == "mapa_planta") {
     sprite_index = mapa_planta; 
 } else if (tipo == "fase_1") {

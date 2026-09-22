@@ -10,7 +10,7 @@ function plantas_criar_catalogo()
         ervaespinho:        { objeto: obj_ervaespinho,        card: obj_card_ervaespinho,        custo: 100, recarga: 7.5,  desbloqueada_inicial: false },
         batatamina:         { objeto: obj_batatamina,         card: obj_card_batatamina,         custo: 25,  recarga: 20.0, desbloqueada_inicial: false },
         esparabalde:        { objeto: obj_esparabalde,        card: obj_card_esparabalde,        custo: 75,  recarga: 15.0, desbloqueada_inicial: false },
-        repelecao:          { objeto: obj_repepe_cao,         card: obj_card_repelecao,          custo: 75,  recarga: 15.0, desbloqueada_inicial: false },
+        repelecao:          { objeto: obj_repele_cao,         card: obj_card_repelecao,          custo: 75,  recarga: 15.0, desbloqueada_inicial: false },
         duplervilha:        { objeto: obj_duplervilha,        card: obj_card_duplervilha,        custo: 175, recarga: 10.0, desbloqueada_inicial: false },
         covaceps:           { objeto: obj_covaceps,           card: obj_card_covaceps,           custo: 50,  recarga: 90.0, desbloqueada_inicial: false },
         veudenoiva:         { objeto: obj_veudenoiva,         card: obj_card_veudenoiva,         custo: 150, recarga: 7.5,  desbloqueada_inicial: false },

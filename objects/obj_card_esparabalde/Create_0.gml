@@ -10,3 +10,5 @@ ja_escolhida = false;
 tempo_cooldown_max = 10; // Defina o tempo em segundos para esta planta
 tempo_cooldown_atual = 0;
 em_cooldown = false;
+
+depth = -100;
