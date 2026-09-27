@@ -1,16 +1,27 @@
+#region
 // ============================================================
 // CLIQUE NA BARRA LATERAL
 // ============================================================
 
-// Só responde aos cliques se a partida já tiver começado
+
+// Só responde se a fase começou
+
 if (global.fase_iniciada)
 {
-    // --------------------------------------------------------
-    // ÁREA DO QUADRO
-    // --------------------------------------------------------
+    // ========================================================
+    // TAMANHO DO QUADRO
+    // ========================================================
 
-    var quadro_largura = sprite_get_width(spr_quadrado_plantas) * 1.12;
-    var quadro_altura = sprite_get_height(spr_quadrado_plantas) * 1.08;
+    var quadro_largura =
+        sprite_get_width(spr_quadrado_plantas) * 1.12;
+
+    var quadro_altura =
+        sprite_get_height(spr_quadrado_plantas) * 1.08;
+
+
+    // ========================================================
+    // VERIFICA SE O MOUSE ESTÁ NO QUADRO
+    // ========================================================
 
     var dentro_quadro =
         point_in_rectangle(
@@ -22,29 +33,29 @@ if (global.fase_iniciada)
             y + quadro_altura / 2
         );
 
-    // --------------------------------------------------------
-    // SÓ CONTINUA SE CLICOU NO QUADRO
-    // --------------------------------------------------------
 
     if (!dentro_quadro)
     {
         exit;
     }
 
-    // --------------------------------------------------------
-    // TRAVA: SE ESTIVER RECARREGANDO, IGNORA
-    // --------------------------------------------------------
+
+    // ========================================================
+    // SE ESTIVER EM COOLDOWN
+    // ========================================================
 
     if (em_cooldown)
     {
         exit;
     }
 
-    // --------------------------------------------------------
-    // IDENTIFICA A PLANTA
-    // --------------------------------------------------------
+
+    // ========================================================
+    // ÍNDICE DA PLANTA
+    // ========================================================
 
     var index = type - 1;
+
 
     if (index < ds_list_size(global.plantas_escolhidas))
     {
@@ -54,38 +65,62 @@ if (global.fase_iniciada)
                 index
             );
 
-        var objeto_real =
-            asset_get_index("obj_" + nome_planta);
 
-        // ----------------------------------------------------
-        // EXCEÇÕES DE OBJETOS
-        // ----------------------------------------------------
+        // ====================================================
+        // OBJETO REAL DA PLANTA
+        // ====================================================
+
+        var objeto_real =
+            asset_get_index(
+                "obj_" + nome_planta
+            );
+
+
+        // ====================================================
+        // EXCEÇÕES
+        // ====================================================
 
         if (nome_planta == "noz")
+        {
             objeto_real = obj_noz_obstaculo;
+        }
 
         if (nome_planta == "repelecao")
+        {
             objeto_real = obj_repele_cao;
+        }
 
         if (nome_planta == "broto")
+        {
             objeto_real = obj_brotoflorescedor;
+        }
 
         if (nome_planta == "covaceps")
+        {
             objeto_real = obj_covaceps;
+        }
 
         if (nome_planta == "enroscacovas")
+        {
             objeto_real = obj_enroscacovas;
+        }
 
         if (nome_planta == "espinhoguiado")
+        {
             objeto_real = obj_espinhoguiado;
+        }
 
-        // ----------------------------------------------------
-        // SE O OBJETO EXISTIR
-        // ----------------------------------------------------
+
+        // ====================================================
+        // VERIFICA SE O OBJETO EXISTE
+        // ====================================================
 
         if (object_exists(objeto_real))
         {
-            // Se já for a mesma planta, cancela a seleção
+            // -----------------------------------------------
+            // CLICOU NA MESMA PLANTA
+            // -----------------------------------------------
+
             if (global.planta_selecionada == objeto_real)
             {
                 global.planta_selecionada = noone;
@@ -93,11 +128,16 @@ if (global.fase_iniciada)
             }
             else
             {
+                // -------------------------------------------
+                // SELECIONA
+                // -------------------------------------------
+
                 global.planta_selecionada = objeto_real;
 
-                // Salva a barra que foi clicada
                 global.barra_selecionada = id;
             }
         }
     }
 }
+
+#endregion
