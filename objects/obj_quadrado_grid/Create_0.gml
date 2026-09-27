@@ -1,10 +1,26 @@
-ocupado = false; // Diz se já tem uma planta aqui ou não
+#region
+// ============================================================
+// OBJ_QUADRADO_GRID — CREATE
+// ============================================================
 
 // ============================================================
-// AVISO — SÓIS INSUFICIENTES
+// CONTROLE DE OCUPAÇÃO
+// ============================================================
+
+// FALSE = quadrado livre
+// TRUE  = quadrado possui uma planta
+
+ocupado = false;
+
+
+// ============================================================
+// AVISO DE SÓIS
 // ============================================================
 
 aviso_sois = "";
 global.aviso_sois_timer = 0;
+#endregion
+
+
 
 

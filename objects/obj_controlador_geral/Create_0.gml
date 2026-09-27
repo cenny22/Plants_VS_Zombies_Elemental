@@ -18,3 +18,5 @@ global.plantas = plantas_criar_catalogo();
 plantas_inicializar_desbloqueios();
 
 global.barra_selecionada = noone;
+
+global.planta_selecionada = noone;
