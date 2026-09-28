@@ -16,16 +16,13 @@ maquinaestados = function()
     {
         case "entrando":
 
-            sprite_index = Spr_dave_1;
+            sprite_index = Spr_dave;
 
-            hspeed = 1;
+            hspeed = 4;
 
 
-            if (x >= 500)
+            if (x >= 0)
             {
-                x = 500;
-                hspeed = 0;
-
                 estado = "conversando";
             }
 
@@ -35,10 +32,22 @@ maquinaestados = function()
         case "conversando":
 
             sprite_index = Spr_dave;
-
+			
             hspeed = 0;
 
         break;
     }
 };
+
+visibilidade = function()
+{
+	if (global.fase_iniciada)
+	{
+		visible = false;
+	}
+	else
+	{
+		visible = true;	
+	}
+}
 #endregion

@@ -13,4 +13,9 @@ if (point_in_rectangle(x, y, x1, y1, x2, y2)) {
     }
 }
 
+levar_dano = function(_dano)
+{
+	hp -= _dano;
+}
+
 pisk = 0;
