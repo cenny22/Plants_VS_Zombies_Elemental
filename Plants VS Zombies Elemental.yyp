@@ -26,7 +26,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"Plants VS Zombies Elemental",
   "resources":[
@@ -301,10 +301,12 @@
     {"id":{"name":"Sprite_jardineira_ervi","path":"sprites/Sprite_jardineira_ervi/Sprite_jardineira_ervi.yy",},},
     {"id":{"name":"Sprite_jardineira_giras","path":"sprites/Sprite_jardineira_giras/Sprite_jardineira_giras.yy",},},
     {"id":{"name":"Sprite_jardineira_noze","path":"sprites/Sprite_jardineira_noze/Sprite_jardineira_noze.yy",},},
+    {"id":{"name":"Sprite_nao_pa","path":"sprites/Sprite_nao_pa/Sprite_nao_pa.yy",},},
     {"id":{"name":"Sprite_noz","path":"sprites/Sprite_noz/Sprite_noz.yy",},},
     {"id":{"name":"Sprite_pa","path":"sprites/Sprite_pa/Sprite_pa.yy",},},
     {"id":{"name":"Sprite_planta","path":"sprites/Sprite_planta/Sprite_planta.yy",},},
     {"id":{"name":"Sprite_shooter","path":"sprites/Sprite_shooter/Sprite_shooter.yy",},},
+    {"id":{"name":"Sprite_so_pa","path":"sprites/Sprite_so_pa/Sprite_so_pa.yy",},},
     {"id":{"name":"Sprite_sol","path":"sprites/Sprite_sol/Sprite_sol.yy",},},
     {"id":{"name":"Sprite_SS","path":"sprites/Sprite_SS/Sprite_SS.yy",},},
     {"id":{"name":"Sprite_tarzan","path":"sprites/Sprite_tarzan/Sprite_tarzan.yy",},},
