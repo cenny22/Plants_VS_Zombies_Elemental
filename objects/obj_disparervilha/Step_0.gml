@@ -1,39 +1,89 @@
+#region
+
 event_inherited(); // Garante que ela morra se o HP chegar a zero
 
-// Altura da área de visão (16 pixels para cima e 16 para baixo cobre a fileira toda)
-var margem_altura = 16; 
+// Altura da área de visão
+var margem_altura = 16;
 
-// 1. Procura QUALQUER zumbi (inclusive a galinha) em uma faixa reta para a direita
-var zumbi_normal = collision_rectangle(x, y - margem_altura, room_width, y + margem_altura, obj_zumbi_parent, false, true);
+// Procura QUALQUER zumbi em uma faixa reta para a direita
+var zumbi_normal = collision_rectangle(
+    x,
+    y - margem_altura,
+    room_width,
+    y + margem_altura,
+    obj_zumbi_parent,
+    false,
+    true
+);
 
-// 2. Procura o zumbi arbusto na mesma faixa
-var zumbi_arbusto = collision_rectangle(x, y - margem_altura, room_width, y + margem_altura, obj_zumbi_arbusto, false, true);
+// Procura o zumbi arbusto na mesma faixa
+var zumbi_arbusto = collision_rectangle(
+    x,
+    y - margem_altura,
+    room_width,
+    y + margem_altura,
+    obj_zumbi_arbusto,
+    false,
+    true
+);
 
 
 // ====================================================================
 // CONFIGURAÇÃO DO DISPARO
 // ====================================================================
+
 zumbi_na_linha = false;
 
-// Se achou um zumbi normal/galinha, avisa que tem alvo
-if (zumbi_normal != noone) {
+// Zumbi normal / galinha
+if (zumbi_normal != noone)
+{
     zumbi_na_linha = true;
 }
 
-// Se achou o arbusto E ele está comendo, avisa que tem alvo também
-if (zumbi_arbusto != noone && zumbi_arbusto.estado == "comendo") {
+// Zumbi arbusto somente quando está comendo
+if (
+    zumbi_arbusto != noone
+    &&
+    zumbi_arbusto.estado == "comendo"
+)
+{
     zumbi_na_linha = true;
 }
 
 
 // ====================================================================
-// EXECUÇÃO DO TIRO (Baseado no seu alarme e trava)
+// EXECUÇÃO DO TIRO
 // ====================================================================
-// Só atira se tiver zumbi na linha E se a planta não estiver na espera do alarme
-if (zumbi_na_linha && pode_atirar) {
 
-    instance_create_layer(x + 20, y, "Instances", obj_ervilha);
- 
- pode_atirar = false;
-    alarm[0] = room_speed * 1.5; // 1.5 segundos de intervalo para poder atirar de novo
+if (zumbi_na_linha && pode_atirar)
+{
+    // Cria a ervilha
+    instance_create_layer(
+        x + 20,
+        y,
+        "Instances",
+        obj_ervilha
+    );
+
+    // ================================================================
+    // ANIMAÇÃO DE ATAQUE
+    // ================================================================
+
+    sprite_index = spr_disparervilha_atirando;
+
+    // Reinicia a animação da sprite
+    image_index = 0;
+
+    // ================================================================
+    // CONTROLE DO DISPARO
+    // ================================================================
+
+    pode_atirar = false;
+
+    alarm[0] = room_speed * 1.5;
+
+    // Timer para voltar à sprite normal
+    alarm[1] = room_speed;
 }
+
+#endregion
