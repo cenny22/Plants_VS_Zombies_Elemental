@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Dave",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":287.08572,
+  "exportDir":"",
+  "name":"Dave",
+  "parent":{
+    "name":"group1",
+    "path":"folders/Sons/group1.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Dave.mp3",
+  "volume":1.0,
+}
