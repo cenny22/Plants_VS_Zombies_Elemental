@@ -26,7 +26,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"Plants VS Zombies Elemental",
   "resources":[
@@ -277,6 +277,10 @@
     {"id":{"name":"planta_8","path":"sprites/planta_8/planta_8.yy",},},
     {"id":{"name":"planta_9","path":"sprites/planta_9/planta_9.yy",},},
     {"id":{"name":"propaganda","path":"sprites/propaganda/propaganda.yy",},},
+    {"id":{"name":"Spr_Adubo0","path":"sprites/Spr_Adubo0/Spr_Adubo0.yy",},},
+    {"id":{"name":"Spr_Adubo1","path":"sprites/Spr_Adubo1/Spr_Adubo1.yy",},},
+    {"id":{"name":"Spr_Adubo2","path":"sprites/Spr_Adubo2/Spr_Adubo2.yy",},},
+    {"id":{"name":"Spr_Adubo3","path":"sprites/Spr_Adubo3/Spr_Adubo3.yy",},},
     {"id":{"name":"spr_batata_mina_charged","path":"sprites/spr_batata_mina_charged/spr_batata_mina_charged.yy",},},
     {"id":{"name":"spr_batatamina_n_pronta","path":"sprites/spr_batatamina_n_pronta/spr_batatamina_n_pronta.yy",},},
     {"id":{"name":"spr_boss","path":"sprites/spr_boss/spr_boss.yy",},},
@@ -340,7 +344,6 @@
     {"id":{"name":"Sprite137","path":"sprites/Sprite137/Sprite137.yy",},},
     {"id":{"name":"Sprite138","path":"sprites/Sprite138/Sprite138.yy",},},
     {"id":{"name":"Sprite14","path":"sprites/Sprite14/Sprite14.yy",},},
-    {"id":{"name":"Sprite146","path":"sprites/Sprite146/Sprite146.yy",},},
     {"id":{"name":"Sprite19","path":"sprites/Sprite19/Sprite19.yy",},},
     {"id":{"name":"Sprite23_1","path":"sprites/Sprite23_1/Sprite23_1.yy",},},
     {"id":{"name":"Sprite23_2","path":"sprites/Sprite23_2/Sprite23_2.yy",},},
