@@ -1,3 +1,4 @@
+depth = -9999;
 #region
 // ============================================================
 // ESTADO INICIAL
@@ -18,10 +19,10 @@ maquinaestados = function()
 
             sprite_index = Spr_dave;
 
-            hspeed = 4;
+            hspeed = 20;
 
 
-            if (x >= 0)
+            if (x >= -40)
             {
                 estado = "conversando";
             }

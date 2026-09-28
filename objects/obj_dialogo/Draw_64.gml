@@ -1,7 +1,4 @@
-#region
-// ============================================================
-// OBJ_DIALOGO — DRAW GUI
-// ============================================================
+#region OBJ_DIALOGO — DRAW GUI
 
 if (!dialogo_ativo)
 {
@@ -13,9 +10,7 @@ if (!dialogo_ativo)
 // TAMANHO DO BALÃO
 // ============================================================
 
-var largura =
-    display_get_gui_width() * 0.75;
-
+var largura = display_get_gui_width() * 0.75;
 var altura = 150;
 
 
@@ -23,15 +18,12 @@ var altura = 150;
 // POSIÇÃO
 // ============================================================
 
-var bx =
-    display_get_gui_width() / 2;
-
-var by =
-    display_get_gui_height() - 120;
+var bx = display_get_gui_width() / 2;
+var by = display_get_gui_height() - 120;
 
 
 // ============================================================
-// BORDA
+// BORDA E FUNDO
 // ============================================================
 
 draw_set_color(c_white);
@@ -44,13 +36,7 @@ draw_roundrect(
     false
 );
 
-
-// ============================================================
-// FUNDO DO BALÃO
-// ============================================================
-
 draw_set_color(c_white);
-
 draw_set_alpha(0.95);
 
 draw_roundrect(
@@ -69,16 +55,16 @@ draw_set_alpha(1);
 // ============================================================
 
 draw_set_font(fnt_menu);
-
 draw_set_color(c_aqua);
 
 var nome_personagem = "Dave Doidão";
 
-if (personagem_atual == "penn")
+if (personagem_atual == "penny")
 {
-    nome_personagem = "Penn";
+    nome_personagem = "Penny";
+    draw_set_font(fnt_menu);
+    draw_set_color(c_red);
 }
-
 
 draw_text(
     bx - largura / 2 + 30,
@@ -92,8 +78,6 @@ draw_text(
 // ============================================================
 
 draw_set_font(fnt_cool);
-
-// TEXTO PRETO
 draw_set_color(c_black);
 
 draw_text_ext(
@@ -126,7 +110,6 @@ if (pode_avancar)
 // ============================================================
 
 draw_set_alpha(1);
-
 draw_set_color(c_white);
 
 #endregion
