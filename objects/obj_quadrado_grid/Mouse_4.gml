@@ -5,10 +5,6 @@
 // ============================================================
 
 
-// ============================================================
-// VERIFICA SE EXISTE PLANTA SELECIONADA
-// ============================================================
-
 if (!variable_global_exists("planta_selecionada"))
 {
     exit;
@@ -21,10 +17,6 @@ if (global.planta_selecionada == noone)
 }
 
 
-// ============================================================
-// VERIFICA SE O QUADRADO JÁ ESTÁ OCUPADO
-// ============================================================
-
 if (ocupado)
 {
     exit;
@@ -32,16 +24,12 @@ if (ocupado)
 
 
 // ============================================================
-// PEGA O OBJETO DA PLANTA
+// OBJETO DA PLANTA
 // ============================================================
 
 var objeto_planta =
     global.planta_selecionada;
 
-
-// ============================================================
-// SEGURANÇA
-// ============================================================
 
 if (!object_exists(objeto_planta))
 {
@@ -50,32 +38,50 @@ if (!object_exists(objeto_planta))
 
 
 // ============================================================
-// POSIÇÃO DO GRID
+// DESCOBRIR QUAL PLANTA É
 // ============================================================
 
-// A planta nasce exatamente no centro
-// deste quadrado.
-
-var planta_x = x;
-var planta_y = y;
-
-
-// ============================================================
-// CRIA A PLANTA
-// ============================================================
-
-var planta_criada =
-    instance_create_layer(
-        planta_x,
-        planta_y,
-        "Instances",
+var dados =
+    planta_obter_por_objeto(
         objeto_planta
     );
 
 
+if (is_undefined(dados))
+{
+    exit;
+}
+
+
 // ============================================================
-// VERIFICA SE FOI CRIADA
+// VERIFICAR SÓIS NOVAMENTE
+// Segurança para evitar gastar se algo mudou
 // ============================================================
+
+if (!variable_global_exists("sois"))
+{
+    exit;
+}
+
+
+if (global.sois < dados.custo)
+{
+    exit;
+}
+
+
+// ============================================================
+// CRIAR A PLANTA
+// ============================================================
+
+var planta_criada =
+    instance_create_layer(
+        x,
+        y,
+        "Instances",
+        objeto_planta
+    );
+
 
 if (planta_criada == noone)
 {
@@ -84,24 +90,43 @@ if (planta_criada == noone)
 
 
 // ============================================================
-// MARCA O QUADRADO COMO OCUPADO
+// DESCONTAR SÓIS
+// ============================================================
+
+global.sois -= dados.custo;
+
+
+// ============================================================
+// OCUPAR O QUADRADO
 // ============================================================
 
 ocupado = true;
 
 
 // ============================================================
-// LIMPA A SELEÇÃO
+// INICIAR COOLDOWN DA CARTA
+// ============================================================
+
+if (instance_exists(obj_barra_lateral))
+{
+    with (obj_barra_lateral)
+    {
+        iniciar_cooldown(
+            global.barra_selecionada,
+            dados.recarga * room_speed
+        );
+    }
+}
+
+
+// ============================================================
+// LIMPAR SELEÇÃO
 // ============================================================
 
 global.planta_selecionada = noone;
 
 global.barra_selecionada = noone;
 
-
-// ============================================================
-// AVISA A BARRA PARA DESSELECIONAR
-// ============================================================
 
 if (instance_exists(obj_barra_lateral))
 {

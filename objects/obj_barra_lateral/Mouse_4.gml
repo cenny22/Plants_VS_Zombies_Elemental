@@ -1,143 +1,313 @@
 #region
 // ============================================================
-// CLIQUE NA BARRA LATERAL
+// OBJ_BARRA_LATERAL — CREATE
+// SISTEMA DE PEGAR PLANTA + COOLDOWN
 // ============================================================
 
 
-// Só responde se a fase começou
+// ============================================================
+// CONFIGURAÇÕES DA BARRA
+// ============================================================
 
-if (global.fase_iniciada)
+barra_x = 100;
+barra_y = 100;
+
+espacamento = 75;
+
+escala_quadro_x = 1.12;
+escala_quadro_y = 1.08;
+
+escala_planta = 0.75;
+
+
+// ============================================================
+// PLANTA SELECIONADA
+// ============================================================
+
+planta_selecionada_local = "";
+
+
+// ============================================================
+// ÍNDICE DA CARTA SELECIONADA
+// ============================================================
+
+indice_selecionado = -1;
+
+
+// ============================================================
+// COOLDOWNS
+// Um cooldown para cada carta
+// ============================================================
+
+cooldowns = [];
+
+
+// ============================================================
+// MÉTODO: INICIAR COOLDOWN
+// ============================================================
+
+iniciar_cooldown = function(_indice, _tempo)
 {
+    if (_indice < 0)
+    {
+        return;
+    }
+
+    cooldowns[_indice] = _tempo;
+};
+
+
+// ============================================================
+// MÉTODO: PEGAR PLANTA
+// ============================================================
+
+pegar_planta = function(_indice)
+{
+    if (!variable_global_exists("plantas_escolhidas"))
+    {
+        return;
+    }
+
+    if (!ds_exists(global.plantas_escolhidas, ds_type_list))
+    {
+        return;
+    }
+
+    if (_indice < 0)
+    {
+        return;
+    }
+
+    if (_indice >= ds_list_size(global.plantas_escolhidas))
+    {
+        return;
+    }
+
+
     // ========================================================
-    // TAMANHO DO QUADRO
+    // VERIFICA COOLDOWN
     // ========================================================
 
-    var quadro_largura =
-        sprite_get_width(spr_quadrado_plantas) * 1.12;
-
-    var quadro_altura =
-        sprite_get_height(spr_quadrado_plantas) * 1.08;
+    if (array_length(cooldowns) > _indice)
+    {
+        if (cooldowns[_indice] > 0)
+        {
+            return;
+        }
+    }
 
 
     // ========================================================
-    // VERIFICA SE O MOUSE ESTÁ NO QUADRO
+    // PEGA O NOME DA PLANTA
     // ========================================================
 
-    var dentro_quadro =
-        point_in_rectangle(
-            mouse_x,
-            mouse_y,
-            x - quadro_largura / 2,
-            y - quadro_altura / 2,
-            x + quadro_largura / 2,
-            y + quadro_altura / 2
+    var nome =
+        ds_list_find_value(
+            global.plantas_escolhidas,
+            _indice
         );
 
 
-    if (!dentro_quadro)
+    // ========================================================
+    // PEGA OS DADOS DO CATÁLOGO
+    // ========================================================
+
+    var dados =
+        planta_obter(nome);
+
+    if (is_undefined(dados))
     {
-        exit;
+        return;
     }
 
 
     // ========================================================
-    // SE ESTIVER EM COOLDOWN
+    // VERIFICA SÓIS
     // ========================================================
 
-    if (em_cooldown)
+    if (!variable_global_exists("sois"))
     {
-        exit;
+        return;
+    }
+
+    if (global.sois < dados.custo)
+    {
+        return;
     }
 
 
     // ========================================================
-    // ÍNDICE DA PLANTA
+    // SE CLICAR NOVAMENTE NA CARTA SELECIONADA,
+    // CANCELA
     // ========================================================
 
-    var index = type - 1;
-
-
-    if (index < ds_list_size(global.plantas_escolhidas))
+    if (indice_selecionado == _indice)
     {
-        var nome_planta =
-            ds_list_find_value(
-                global.plantas_escolhidas,
-                index
+        cancelar_planta();
+        return;
+    }
+
+
+    // ========================================================
+    // SELECIONA A PLANTA
+    // ========================================================
+
+    planta_selecionada_local = nome;
+
+    indice_selecionado = _indice;
+
+    global.planta_selecionada =
+        dados.objeto;
+
+    global.barra_selecionada =
+        _indice;
+};
+
+
+// ============================================================
+// MÉTODO: CANCELAR PLANTA
+// ============================================================
+
+cancelar_planta = function()
+{
+    planta_selecionada_local = "";
+
+    indice_selecionado = -1;
+
+    global.planta_selecionada = noone;
+
+    global.barra_selecionada = noone;
+};
+
+
+// ============================================================
+// MÉTODO: VERIFICAR CLIQUE
+// ============================================================
+
+verificar_clique = function()
+{
+    var mouse_gui_x =
+        device_mouse_x_to_gui(0);
+
+    var mouse_gui_y =
+        device_mouse_y_to_gui(0);
+
+
+    if (variable_global_exists("fase_iniciada"))
+    {
+        if (!global.fase_iniciada)
+        {
+            return;
+        }
+    }
+
+
+    if (!mouse_check_button_pressed(mb_left))
+    {
+        return;
+    }
+
+
+    if (!variable_global_exists("plantas_escolhidas"))
+    {
+        return;
+    }
+
+    if (!ds_exists(global.plantas_escolhidas, ds_type_list))
+    {
+        return;
+    }
+
+
+    var quadro_largura =
+        sprite_get_width(spr_quadrado_plantas)
+        * escala_quadro_x;
+
+    var quadro_altura =
+        sprite_get_height(spr_quadrado_plantas)
+        * escala_quadro_y;
+
+
+    var quantidade =
+        ds_list_size(
+            global.plantas_escolhidas
+        );
+
+
+    for (var i = 0; i < quantidade; i++)
+    {
+        var px = barra_x;
+
+        var py =
+            barra_y +
+            (i * espacamento);
+
+
+        var dentro =
+            point_in_rectangle(
+                mouse_gui_x,
+                mouse_gui_y,
+
+                px - quadro_largura / 2,
+                py - quadro_altura / 2,
+
+                px + quadro_largura / 2,
+                py + quadro_altura / 2
             );
 
 
-        // ====================================================
-        // OBJETO REAL DA PLANTA
-        // ====================================================
-
-        var objeto_real =
-            asset_get_index(
-                "obj_" + nome_planta
-            );
-
-
-        // ====================================================
-        // EXCEÇÕES
-        // ====================================================
-
-        if (nome_planta == "noz")
+        if (dentro)
         {
-            objeto_real = obj_noz_obstaculo;
+            pegar_planta(i);
+
+            return;
         }
+    }
+};
 
-        if (nome_planta == "repelecao")
-        {
-            objeto_real = obj_repele_cao;
-        }
 
-        if (nome_planta == "broto")
-        {
-            objeto_real = obj_brotoflorescedor;
-        }
+// ============================================================
+// MÉTODO: ATUALIZAR COOLDOWNS
+// ============================================================
 
-        if (nome_planta == "covaceps")
-        {
-            objeto_real = obj_covaceps;
-        }
+atualizar_cooldowns = function()
+{
+    var quantidade =
+        ds_list_size(
+            global.plantas_escolhidas
+        );
 
-        if (nome_planta == "enroscacovas")
-        {
-            objeto_real = obj_enroscacovas;
-        }
 
-        if (nome_planta == "espinhoguiado")
+    for (var i = 0; i < quantidade; i++)
+    {
+        if (array_length(cooldowns) <= i)
         {
-            objeto_real = obj_espinhoguiado;
+            cooldowns[i] = 0;
         }
 
 
-        // ====================================================
-        // VERIFICA SE O OBJETO EXISTE
-        // ====================================================
-
-        if (object_exists(objeto_real))
+        if (cooldowns[i] > 0)
         {
-            // -----------------------------------------------
-            // CLICOU NA MESMA PLANTA
-            // -----------------------------------------------
+            cooldowns[i]--;
 
-            if (global.planta_selecionada == objeto_real)
+            if (cooldowns[i] < 0)
             {
-                global.planta_selecionada = noone;
-                global.barra_selecionada = noone;
-            }
-            else
-            {
-                // -------------------------------------------
-                // SELECIONA
-                // -------------------------------------------
-
-                global.planta_selecionada = objeto_real;
-
-                global.barra_selecionada = id;
+                cooldowns[i] = 0;
             }
         }
     }
-}
+};
+
+
+// ============================================================
+// MÉTODO: ATUALIZAR
+// ============================================================
+
+atualizar = function()
+{
+    atualizar_cooldowns();
+
+    verificar_clique();
+};
 
 #endregion

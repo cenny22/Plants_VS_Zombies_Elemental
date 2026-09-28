@@ -1,7 +1,7 @@
 #region
 // ============================================================
 // OBJ_BARRA_LATERAL — CREATE
-// SISTEMA DE PEGAR PLANTA
+// SISTEMA DE PEGAR PLANTA + COOLDOWN
 // ============================================================
 
 
@@ -26,24 +26,22 @@ escala_planta = 0.75;
 
 planta_selecionada_local = "";
 
-
-// ============================================================
-// ÍNDICE DA PLANTA SELECIONADA
-// ============================================================
-
 indice_selecionado = -1;
 
 
 // ============================================================
-// MÉTODO: PEGAR PLANTA
+// ARRAY DE COOLDOWNS
 // ============================================================
 
-pegar_planta = function(_indice)
-{
-    // --------------------------------------------------------
-    // Verifica a lista
-    // --------------------------------------------------------
+cooldowns = [];
 
+
+// ============================================================
+// MÉTODO: GARANTIR COOLDOWNS
+// ============================================================
+
+garantir_cooldowns = function()
+{
     if (!variable_global_exists("plantas_escolhidas"))
     {
         return;
@@ -54,10 +52,53 @@ pegar_planta = function(_indice)
         return;
     }
 
+    var quantidade =
+        ds_list_size(
+            global.plantas_escolhidas
+        );
 
-    // --------------------------------------------------------
-    // Verifica índice
-    // --------------------------------------------------------
+    for (var i = 0; i < quantidade; i++)
+    {
+        if (array_length(cooldowns) <= i)
+        {
+            cooldowns[i] = 0;
+        }
+    }
+};
+
+
+// ============================================================
+// MÉTODO: INICIAR COOLDOWN
+// ============================================================
+
+iniciar_cooldown = function(_indice, _tempo)
+{
+    if (_indice < 0)
+    {
+        return;
+    }
+
+    garantir_cooldowns();
+
+    cooldowns[_indice] = _tempo;
+};
+
+
+// ============================================================
+// MÉTODO: PEGAR PLANTA
+// ============================================================
+
+pegar_planta = function(_indice)
+{
+    if (!variable_global_exists("plantas_escolhidas"))
+    {
+        return;
+    }
+
+    if (!ds_exists(global.plantas_escolhidas, ds_type_list))
+    {
+        return;
+    }
 
     if (_indice < 0)
     {
@@ -70,9 +111,26 @@ pegar_planta = function(_indice)
     }
 
 
-    // --------------------------------------------------------
-    // Pega o nome da planta
-    // --------------------------------------------------------
+    // ========================================================
+    // GARANTE QUE O COOLDOWN EXISTE
+    // ========================================================
+
+    garantir_cooldowns();
+
+
+    // ========================================================
+    // VERIFICA COOLDOWN
+    // ========================================================
+
+    if (cooldowns[_indice] > 0)
+    {
+        return;
+    }
+
+
+    // ========================================================
+    // PEGA O NOME DA PLANTA
+    // ========================================================
 
     var nome =
         ds_list_find_value(
@@ -81,9 +139,9 @@ pegar_planta = function(_indice)
         );
 
 
-    // --------------------------------------------------------
-    // Pega os dados do catálogo
-    // --------------------------------------------------------
+    // ========================================================
+    // PEGA OS DADOS DO CATÁLOGO
+    // ========================================================
 
     var dados =
         planta_obter(nome);
@@ -96,27 +154,23 @@ pegar_planta = function(_indice)
 
 
     // ========================================================
-    // VERIFICA SE O JOGADOR TEM SÓIS SUFICIENTES
+    // VERIFICA SÓIS
     // ========================================================
 
-    if (variable_global_exists("sois"))
+    if (!variable_global_exists("sois"))
     {
-        if (global.sois < dados.custo)
-        {
-            // Não pega a planta.
-            return;
-        }
+        return;
     }
-    else
+
+    if (global.sois < dados.custo)
     {
-        // Se o sistema de Sóis ainda não existir,
-        // não permite selecionar a planta.
         return;
     }
 
 
     // ========================================================
-    // SE CLICOU NA MESMA PLANTA, CANCELA
+    // SE CLICAR NOVAMENTE NA CARTA SELECIONADA,
+    // CANCELA
     // ========================================================
 
     if (indice_selecionado == _indice)
@@ -127,21 +181,15 @@ pegar_planta = function(_indice)
 
 
     // ========================================================
-    // PEGA A PLANTA
+    // SELECIONA A PLANTA
     // ========================================================
 
     planta_selecionada_local = nome;
 
     indice_selecionado = _indice;
 
-
-    // Guarda o objeto real da planta.
-
     global.planta_selecionada =
         dados.objeto;
-
-
-    // Guarda a posição da carta.
 
     global.barra_selecionada =
         _indice;
@@ -170,20 +218,12 @@ cancelar_planta = function()
 
 verificar_clique = function()
 {
-    // --------------------------------------------------------
-    // Coordenadas da GUI
-    // --------------------------------------------------------
-
     var mouse_gui_x =
         device_mouse_x_to_gui(0);
 
     var mouse_gui_y =
         device_mouse_y_to_gui(0);
 
-
-    // --------------------------------------------------------
-    // Verifica se a fase começou
-    // --------------------------------------------------------
 
     if (variable_global_exists("fase_iniciada"))
     {
@@ -194,19 +234,11 @@ verificar_clique = function()
     }
 
 
-    // --------------------------------------------------------
-    // Verifica clique esquerdo
-    // --------------------------------------------------------
-
     if (!mouse_check_button_pressed(mb_left))
     {
         return;
     }
 
-
-    // --------------------------------------------------------
-    // Verifica lista
-    // --------------------------------------------------------
 
     if (!variable_global_exists("plantas_escolhidas"))
     {
@@ -219,10 +251,6 @@ verificar_clique = function()
     }
 
 
-    // --------------------------------------------------------
-    // Tamanho do quadro
-    // --------------------------------------------------------
-
     var quadro_largura =
         sprite_get_width(spr_quadrado_plantas)
         * escala_quadro_x;
@@ -232,19 +260,11 @@ verificar_clique = function()
         * escala_quadro_y;
 
 
-    // --------------------------------------------------------
-    // Quantidade de plantas
-    // --------------------------------------------------------
-
     var quantidade =
         ds_list_size(
             global.plantas_escolhidas
         );
 
-
-    // ========================================================
-    // PROCURA QUAL CARTA FOI CLICADA
-    // ========================================================
 
     for (var i = 0; i < quantidade; i++)
     {
@@ -254,10 +274,6 @@ verificar_clique = function()
             barra_y +
             (i * espacamento);
 
-
-        // ----------------------------------------------------
-        // O clique é no QUADRO inteiro
-        // ----------------------------------------------------
 
         var dentro =
             point_in_rectangle(
@@ -283,11 +299,54 @@ verificar_clique = function()
 
 
 // ============================================================
+// MÉTODO: ATUALIZAR COOLDOWNS
+// ============================================================
+
+atualizar_cooldowns = function()
+{
+    if (!variable_global_exists("plantas_escolhidas"))
+    {
+        return;
+    }
+
+    if (!ds_exists(global.plantas_escolhidas, ds_type_list))
+    {
+        return;
+    }
+
+
+    garantir_cooldowns();
+
+
+    var quantidade =
+        ds_list_size(
+            global.plantas_escolhidas
+        );
+
+
+    for (var i = 0; i < quantidade; i++)
+    {
+        if (cooldowns[i] > 0)
+        {
+            cooldowns[i]--;
+
+            if (cooldowns[i] < 0)
+            {
+                cooldowns[i] = 0;
+            }
+        }
+    }
+};
+
+
+// ============================================================
 // MÉTODO: ATUALIZAR
 // ============================================================
 
 atualizar = function()
 {
+    atualizar_cooldowns();
+
     verificar_clique();
 };
 

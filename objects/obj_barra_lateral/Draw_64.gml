@@ -3,15 +3,11 @@
 // OBJ_BARRA_LATERAL — DRAW GUI
 // ============================================================
 // Desenha:
-// - Cartas das plantas
-// - Plantas das cartas
-// - Borda da planta selecionada
+// - Cartas
+// - Plantas
+// - Cooldown
+// - Carta selecionada escura
 // - Planta seguindo o mouse
-// ============================================================
-
-
-// ============================================================
-// VERIFICA LISTA
 // ============================================================
 
 if (!variable_global_exists("plantas_escolhidas"))
@@ -31,26 +27,14 @@ var quantidade =
     );
 
 
-// ============================================================
-// DESENHA TODAS AS CARTAS
-// ============================================================
-
 for (var i = 0; i < quantidade; i++)
 {
-    // --------------------------------------------------------
-    // Nome da planta
-    // --------------------------------------------------------
-
     var nome =
         ds_list_find_value(
             global.plantas_escolhidas,
             i
         );
 
-
-    // --------------------------------------------------------
-    // Dados do catálogo
-    // --------------------------------------------------------
 
     var dados =
         planta_obter(nome);
@@ -62,10 +46,6 @@ for (var i = 0; i < quantidade; i++)
     }
 
 
-    // --------------------------------------------------------
-    // Posição
-    // --------------------------------------------------------
-
     var px = barra_x;
 
     var py =
@@ -74,7 +54,7 @@ for (var i = 0; i < quantidade; i++)
 
 
     // ========================================================
-    // QUADRO
+    // CARTA
     // ========================================================
 
     draw_sprite_ext(
@@ -91,6 +71,14 @@ for (var i = 0; i < quantidade; i++)
 
 
     // ========================================================
+    // VERIFICA SE ESTÁ SELECIONADA
+    // ========================================================
+
+    var esta_selecionada =
+        (indice_selecionado == i);
+
+
+    // ========================================================
     // SPRITE DA PLANTA
     // ========================================================
 
@@ -100,32 +88,127 @@ for (var i = 0; i < quantidade; i++)
         );
 
 
-    if (sprite_planta != -1)
+    // ========================================================
+    // DESENHA A PLANTA NA CARTA
+    // Só aparece se NÃO estiver sendo segurada
+    // ========================================================
+
+    if (!esta_selecionada)
     {
-        draw_sprite_ext(
-            sprite_planta,
-            0,
-            px,
-            py,
-            escala_planta,
-            escala_planta,
-            0,
-            c_white,
-            1
-        );
+        if (sprite_planta != -1)
+        {
+            draw_sprite_ext(
+                sprite_planta,
+                0,
+                px,
+                py,
+                escala_planta,
+                escala_planta,
+                0,
+                c_white,
+                1
+            );
+        }
     }
 
 
     // ========================================================
-    // BORDA DE SELEÇÃO
+    // COOLDOWN
     // ========================================================
 
-    if (indice_selecionado == i)
+    if (array_length(cooldowns) > i)
     {
-        draw_set_color(c_yellow);
+        var cooldown_atual =
+            cooldowns[i];
 
-        // FALSE = somente a borda.
-        // Não usamos draw_style.outline.
+
+        if (cooldown_atual > 0)
+        {
+            var cooldown_max =
+                dados.recarga * room_speed;
+
+
+            // ================================================
+            // ESCURECE A CARTA
+            // ================================================
+
+            draw_set_color(c_black);
+            draw_set_alpha(0.55);
+
+
+            draw_rectangle(
+                px - 42,
+                py - 42,
+                px + 42,
+                py + 42,
+                false
+            );
+
+
+            // ================================================
+            // BARRA VERTICAL DE COOLDOWN
+            // ================================================
+
+            var porcentagem =
+                cooldown_atual / cooldown_max;
+
+
+            var altura_cooldown =
+                84 * porcentagem;
+
+
+            draw_set_color(c_black);
+            draw_set_alpha(0.75);
+
+
+            draw_rectangle(
+                px - 42,
+                py - 42,
+                px + 42,
+                py - 42 + altura_cooldown,
+                false
+            );
+
+
+            // ================================================
+            // TEXTO DO COOLDOWN
+            // ================================================
+
+            draw_set_color(c_white);
+            draw_set_alpha(1);
+
+            draw_set_halign(fa_center);
+            draw_set_valign(fa_middle);
+
+
+            var segundos =
+                ceil(
+                    cooldown_atual / room_speed
+                );
+
+
+            draw_text(
+                px,
+                py,
+                string(segundos)
+            );
+
+
+            draw_set_halign(fa_left);
+            draw_set_valign(fa_top);
+        }
+    }
+
+
+    // ========================================================
+    // CARTA SELECIONADA
+    // ========================================================
+
+    if (esta_selecionada)
+    {
+        draw_set_color(c_black);
+        draw_set_alpha(0.55);
+
 
         draw_rectangle(
             px - 42,
@@ -135,6 +218,8 @@ for (var i = 0; i < quantidade; i++)
             false
         );
 
+
+        draw_set_alpha(1);
         draw_set_color(c_white);
     }
 }
@@ -164,20 +249,12 @@ if (indice_selecionado != -1)
 
             if (sprite_selecionado != -1)
             {
-                // ------------------------------------------------
-                // Posição do mouse na GUI
-                // ------------------------------------------------
-
                 var mouse_gui_x =
                     device_mouse_x_to_gui(0);
 
                 var mouse_gui_y =
                     device_mouse_y_to_gui(0);
 
-
-                // ------------------------------------------------
-                // Desenha a planta na posição do mouse
-                // ------------------------------------------------
 
                 draw_sprite_ext(
                     sprite_selecionado,
@@ -197,15 +274,13 @@ if (indice_selecionado != -1)
 
 
 // ============================================================
-// RESTAURA CONFIGURAÇÕES
+// RESET
 // ============================================================
 
 draw_set_alpha(1);
-
 draw_set_color(c_white);
 
 draw_set_halign(fa_left);
-
 draw_set_valign(fa_top);
 
 #endregion
