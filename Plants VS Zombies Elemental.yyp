@@ -402,7 +402,6 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room_menu","path":"rooms/Room_menu/Room_menu.yy",},},
-    {"roomId":{"name":"Room_fase12_planta","path":"rooms/Room_fase12_planta/Room_fase12_planta.yy",},},
     {"roomId":{"name":"Room_mapas","path":"rooms/Room_mapas/Room_mapas.yy",},},
     {"roomId":{"name":"Room_fases_planta","path":"rooms/Room_fases_planta/Room_fases_planta.yy",},},
     {"roomId":{"name":"Room_fase1_planta","path":"rooms/Room_fase1_planta/Room_fase1_planta.yy",},},
@@ -417,6 +416,7 @@
     {"roomId":{"name":"Room_fase9_planta","path":"rooms/Room_fase9_planta/Room_fase9_planta.yy",},},
     {"roomId":{"name":"Room_fase10_planta","path":"rooms/Room_fase10_planta/Room_fase10_planta.yy",},},
     {"roomId":{"name":"Room_fase11_planta","path":"rooms/Room_fase11_planta/Room_fase11_planta.yy",},},
+    {"roomId":{"name":"Room_fase12_planta","path":"rooms/Room_fase12_planta/Room_fase12_planta.yy",},},
     {"roomId":{"name":"Room_fase13_planta","path":"rooms/Room_fase13_planta/Room_fase13_planta.yy",},},
     {"roomId":{"name":"Room_fase14_planta","path":"rooms/Room_fase14_planta/Room_fase14_planta.yy",},},
     {"roomId":{"name":"Room_fase15_planta","path":"rooms/Room_fase15_planta/Room_fase15_planta.yy",},},
