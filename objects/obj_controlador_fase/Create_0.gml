@@ -1,6 +1,7 @@
 global.sois = 100;
 total_fase = 5;
 //global.sois = 1000000000000000; 
+global.adubos = 3;
 global.fase_iniciada = false;
 global.planta_selecionada = noone; 
 
