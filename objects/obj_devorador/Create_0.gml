@@ -1,3 +1,4 @@
+event_inherited();
 // Atributos de Vida
 hp = 3000;
 hp_maximo = 3000;

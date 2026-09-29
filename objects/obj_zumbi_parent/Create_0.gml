@@ -1,11 +1,20 @@
+#region OBJ_ZUMBI_PARENT — CREATE
+
 hp = 100;
 vel = -0.3;
 atacadoread = noone;
 
 con = 0;
 con_timer = 0;
+fogo = false; // Define o valor padrão para TODOS os zumbis
 
 danos_timer = 0;
+
+// ============================================================
+// CHANCE DE ADUBO (10%)
+// ============================================================
+
+tem_adubo = (random(100) < 5); // Chance de vir com adubo
 
 // ============================================================
 // PARALISIA
@@ -13,6 +22,7 @@ danos_timer = 0;
 
 paralisado = false;
 tempo_paralisado = 0;
+destruido_por_carrinho = false;
 velocidade_salva = vel;
 
 // ============================================================
@@ -40,3 +50,5 @@ for (var i = 0; i < 8; i++)
 }
 
 pisk = 0;
+
+#endregion

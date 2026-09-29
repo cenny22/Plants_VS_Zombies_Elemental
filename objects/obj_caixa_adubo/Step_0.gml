@@ -28,3 +28,9 @@ else
 }
 
 #endregion
+
+// Medida de limite de adubos
+if (global.adubos >=4)
+{
+	global.adubos = 3
+}

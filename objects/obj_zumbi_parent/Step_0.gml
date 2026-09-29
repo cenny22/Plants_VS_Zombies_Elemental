@@ -1,17 +1,11 @@
+#region OBJ_ZUMBI_PARENT — STEP
 
 // ============================================================
 // FOGO + CONGELAMENTO
 // ============================================================
 
-// Se os dois estiverem ativos ao mesmo tempo,
-// o efeito mais recentemente aplicado precisa
-// ser tratado pelo código que aplicou o efeito.
-
-// Segurança: fogo e con nunca ficam ativos juntos.
 if (fogo == true && con > 0)
 {
-    // Se chegou aqui, o congelamento está ativo.
-    // O fogo é removido.
     fogo = false;
     fogo_timer = 0;
 }
@@ -25,7 +19,6 @@ if (con > 0)
 {
     con_timer++;
 
-    // 10 segundos congelado
     if (con_timer >= room_speed * 10)
     {
         con = 0;
@@ -46,7 +39,6 @@ if (fogo == true)
 {
     fogo_timer++;
 
-    // A cada 1.5 segundos
     if (fogo_timer >= room_speed * 1.5)
     {
         hp -= 10;
@@ -60,16 +52,16 @@ else
 }
 
 
-
 if (fogo)
 {
-	alarm[1] = 60
+    alarm[1] = 60;
 }
 else
 {
-	alarm[1] = -1;
+    alarm[1] = -1;
 }
 
+// ============================================================
 // 1. SE ESTIVER PARALISADO
 // ============================================================
 
@@ -92,7 +84,6 @@ if (paralisado)
 
 else
 {
-    // Limpa o alvo se for planta ignorada
     if (instance_exists(atacadoread))
     {
         if (atacadoread.object_index == obj_ervaespinho ||
@@ -103,7 +94,6 @@ else
         }
     }
 
-    // Ataca ou anda
     if (instance_exists(atacadoread))
     {
         speed = 0;
@@ -130,12 +120,6 @@ else
 
 if (hp <= 0)
 {
-    if (!variable_global_exists("zumbis_mortos"))
-        global.zumbis_mortos = 0;
-
-    if (object_index != obj_zumbi_galinha)
-        global.zumbis_mortos += 1;
-
     instance_destroy();
 }
 
@@ -198,6 +182,10 @@ else if (fogo == true)
 {
     image_blend = c_orange;
 }
+else if (variable_instance_exists(id, "tem_adubo") && tem_adubo == true)
+{
+    image_blend = c_lime; // Filtro verde do adubo
+}
 else
 {
     image_blend = c_white;
@@ -234,3 +222,5 @@ if (fogo == true)
         }
     }
 }
+
+#endregion

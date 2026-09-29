@@ -2,3 +2,4 @@
 with (other) {
     instance_change(obj_zumbi_basico, true); 
 }
+global.zumbis_mortos--

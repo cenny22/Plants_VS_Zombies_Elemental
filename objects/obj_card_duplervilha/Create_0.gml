@@ -1,7 +1,7 @@
 nome_planta = "	Duplervilha"; // Texto que vai aparecer desenhado no card
 planta_tipo = "duplervilha";
 custo = 175;
-sprite_planta = Sprite6_2; 
+sprite_planta = spr_duplervilha; 
 ja_escolhida = false;
 // ==========================================================
 // CONTROLE DE COOLDOWN

@@ -1,4 +1,4 @@
-#region OBJ_ADUBO — DRAW GUI
+#region
 
 // Desenha a caixa de adubo na posição original do objeto
 draw_sprite_ext(
@@ -20,7 +20,7 @@ if (global.adubo_selecionado)
     var mouse_y_gui = device_mouse_y_to_gui(0);
 
     draw_sprite_ext(
-        Spr_Adubo_Mouse, // Substitua pelo sprite do adubo que segue o mouse
+        Spr_Adubo_1,
         0,
         mouse_x_gui,
         mouse_y_gui,
@@ -33,3 +33,18 @@ if (global.adubo_selecionado)
 }
 
 #endregion
+// Mudança de sprite para o número de adubos
+if (global.adubos = 1)
+{
+	sprite_index = Spr_Adubo1
+}
+
+else if (global.adubos = 2)
+{
+	sprite_index = Spr_Adubo2
+}
+else
+{
+	sprite_index = Spr_Adubo3
+}
+

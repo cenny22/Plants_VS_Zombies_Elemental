@@ -1,3 +1,4 @@
+event_inherited()
 var camada_atual = layer;
 
 // Encontra o bloco de grid onde o galinheiro está pisando agora

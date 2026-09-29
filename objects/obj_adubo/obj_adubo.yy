@@ -1,21 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_noz_obstaculo_1",
+  "%Name":"obj_adubo",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_noz_obstaculo_1",
+  "name":"obj_adubo",
   "overriddenProperties":[],
   "parent":{
     "name":"Plants VS Zombies Elemental",
     "path":"Plants VS Zombies Elemental.yyp",
   },
-  "parentObjectId":{
-    "name":"obj_planta_parent",
-    "path":"objects/obj_planta_parent/obj_planta_parent.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite23",
-    "path":"sprites/Sprite23/Sprite23.yy",
+    "name":"Spr_Adubo",
+    "path":"sprites/Spr_Adubo/Spr_Adubo.yy",
   },
   "spriteMaskId":null,
   "visible":true,

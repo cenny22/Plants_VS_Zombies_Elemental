@@ -1,9 +1,6 @@
-// ============================================================
-// ZUMBI
-// ============================================================
+#region OBJ_ZUMBI_PARENT — DRAW
 
 var azul_claro = make_color_rgb(135, 206, 250);
-
 
 // ============================================================
 // FOGO
@@ -29,7 +26,6 @@ if (fogo == true)
     draw_set_color(c_white);
 }
 
-
 // ============================================================
 // COR DO ZUMBI
 // ============================================================
@@ -42,9 +38,15 @@ else if (fogo == true)
 {
     image_blend = c_orange;
 }
+else if (variable_instance_exists(id, "tem_adubo") && tem_adubo == true)
+{
+    image_blend = c_lime; // Filtro verde do adubo
+}
 else
 {
     image_blend = c_white;
 }
 
 draw_self();
+
+#endregion

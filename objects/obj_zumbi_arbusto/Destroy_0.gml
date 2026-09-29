@@ -1,1 +1,0 @@
-global.zumbis_mortos ++

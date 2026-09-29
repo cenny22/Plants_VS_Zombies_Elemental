@@ -21,3 +21,17 @@ else {
 if (hp <= 0) {
     instance_destroy();
 }
+
+if (adubo_ativado)
+{
+	hp = 16000
+	adubo_ativado = false;
+}
+if (hp <= 16000) {
+	sprite_index = Sprite23_ADUBO
+}
+
+if (hp <= 6000) {
+	sprite_index = Sprite23
+}
+	

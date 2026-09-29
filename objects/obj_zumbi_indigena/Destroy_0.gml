@@ -1,3 +1,4 @@
+event_inherited();
 // Procura o quadrado do grid mais próximo do zumbi no momento da morte
 var quadrado_perto = instance_nearest(x, y, obj_quadrado_grid);
 

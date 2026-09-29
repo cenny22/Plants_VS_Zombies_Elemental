@@ -4,9 +4,8 @@ if (!ativado) {
 }
 
 // 2. Marca no zumbi que ele foi morto pelo carrinho (para NÃO somar no placar)
-other.morto_por_carrinho = true;
-
-// 3. Destrói o zumbi na hora
-with (other) {
-    instance_destroy();
+with (other) 
+{
+    destruido_por_carrinho = true;
+	instance_destroy();
 }

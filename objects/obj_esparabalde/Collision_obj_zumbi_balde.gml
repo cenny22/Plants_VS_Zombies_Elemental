@@ -2,6 +2,7 @@
 with (other) {
     instance_change(obj_zumbi_basico, true); 
 }
+global.zumbis_mortos--
 
 // A Esparabalde se destrói imediatamente após roubar o cone
 instance_destroy();
