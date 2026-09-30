@@ -8,7 +8,7 @@ if (variable_global_exists("plantas_liberadas") && ds_exists(global.plantas_libe
 }
 
 // Configurações de texto padrão
-draw_set_font(fnt_menu);
+draw_set_font(fnt_pvz);
 
 if (desbloqueada == true) {
     // Desenha o sprite da planta normalmente

@@ -1,4 +1,4 @@
-//draw_set_font(fnt_cool);
+//draw_set_font(fnt_pvz);
 // Desenha la quantidade de Sóis no topo da tela
 draw_set_color(c_yellow);
 draw_text(50, 20, "________" + string(global.sois));

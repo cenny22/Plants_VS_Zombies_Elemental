@@ -1,6 +1,6 @@
 if (pode_nome_em_cima)
 {
-    draw_set_font(fnt_grande);
+    draw_set_font(fnt_pvz);
 
     draw_set_halign(fa_center);
     draw_set_valign(fa_top);
