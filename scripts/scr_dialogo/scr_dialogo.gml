@@ -31,8 +31,8 @@ function scr_dialogo()
                 }
             ];
         break;
-		
-		        case Room_fase6_planta: 
+
+        case Room_fase6_planta: 
             texto = [
                 {
                     personagem: "dave",
@@ -42,11 +42,10 @@ function scr_dialogo()
                     personagem: "penny",
                     fala: "Eu evitarei responder essa pergunta para não ter problemas no processador."
                 }
-				
             ];
         break;
-		
-				case Room_fase7_planta:
+
+        case Room_fase7_planta:
             texto = [
                 {
                     personagem: "dave",
@@ -62,8 +61,8 @@ function scr_dialogo()
                 }
             ];
         break;
-		
-		        case Room_fase12_planta: 
+
+        case Room_fase12_planta: 
             texto = [
                 {
                     personagem: "dave",
@@ -76,7 +75,7 @@ function scr_dialogo()
             ];
         break;
 
-		        case Room_fase13_planta: 
+        case Room_fase13_planta: 
             texto = [
                 {
                     personagem: "penny",
@@ -88,7 +87,7 @@ function scr_dialogo()
                 }
             ];
         break;
-		
+
         case Room_fase14_planta:
             texto = [
                 {
@@ -101,8 +100,8 @@ function scr_dialogo()
                 }
             ];
         break;
-		
-		        case Room_fase16_planta: 
+
+        case Room_fase16_planta: 
             texto = [
                 {
                     personagem: "dave",
@@ -114,8 +113,8 @@ function scr_dialogo()
                 }
             ];
         break;
-		
-		        case Room_fase18_planta: 
+
+        case Room_fase18_planta: 
             texto = [
                 {
                     personagem: "dave",
@@ -127,7 +126,7 @@ function scr_dialogo()
                 }
             ];
         break;
-		
+
         case Room_fase19_planta:
             texto = [
                 {
@@ -144,8 +143,8 @@ function scr_dialogo()
                 }
             ];
         break;
-		
-		        case Room_fase22_planta: 
+
+        case Room_fase22_planta: 
             texto = [
                 {
                     personagem: "penny",
@@ -157,8 +156,8 @@ function scr_dialogo()
                 }
             ];
         break;
-		
-		        case Room_fase26_planta: 
+
+        case Room_fase26_planta: 
             texto = [
                 {
                     personagem: "dave",
@@ -174,7 +173,7 @@ function scr_dialogo()
                 }
             ];
         break;
-		
+
         case Room_fase28_planta: 
             texto = [
                 {
@@ -187,8 +186,6 @@ function scr_dialogo()
                 }
             ];
         break;
-		
-
 
         default: // Caso a room não esteja listada, carrega um texto padrão
             texto = [
