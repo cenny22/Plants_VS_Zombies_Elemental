@@ -46,3 +46,61 @@ else
         vspeed = 2;
     }
 }
+
+#region
+// ============================================================
+// SOL INDO PARA O CONTADOR
+// ============================================================
+
+if (coletado)
+{
+    // ========================================================
+    // DISTÂNCIA ATÉ O CONTADOR
+    // ========================================================
+
+    var _distancia = point_distance(
+        x,
+        y,
+        destino_x,
+        destino_y
+    );
+
+    // ========================================================
+    // CHEGOU AO DESTINO
+    // ========================================================
+
+    if (_distancia <= velocidade_coleta)
+    {
+        x = destino_x;
+        y = destino_y;
+
+        global.sois += valor_sol;
+
+        instance_destroy();
+    }
+    else
+    {
+        // ====================================================
+        // MOVIMENTO ATÉ O CONTADOR
+        // ====================================================
+
+        var _direcao = point_direction(
+            x,
+            y,
+            destino_x,
+            destino_y
+        );
+
+        x += lengthdir_x(
+            velocidade_coleta,
+            _direcao
+        );
+
+        y += lengthdir_y(
+            velocidade_coleta,
+            _direcao
+        );
+    }
+}
+
+#endregion
