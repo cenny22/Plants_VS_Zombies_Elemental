@@ -45,7 +45,7 @@ function scr_dialogo()
             ];
         break;
 
-        case Room_fase7_planta:
+        case Room_fase8_planta:
             texto = [
                 {
                     personagem: "dave",

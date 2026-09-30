@@ -54,7 +54,7 @@ draw_set_alpha(1);
 // NOME DO PERSONAGEM
 // ============================================================
 
-draw_set_font(fnt_menu);
+draw_set_font(fnt_pvz);
 draw_set_color(c_aqua);
 
 var nome_personagem = "Dave Doidão";
@@ -62,7 +62,7 @@ var nome_personagem = "Dave Doidão";
 if (personagem_atual == "penny")
 {
     nome_personagem = "Penny";
-    draw_set_font(fnt_menu);
+    draw_set_font(fnt_pvz);
     draw_set_color(c_red);
 }
 
@@ -77,7 +77,7 @@ draw_text(
 // FALA
 // ============================================================
 
-draw_set_font(fnt_cool);
+draw_set_font(fnt_pvz);
 draw_set_color(c_black);
 
 draw_text_ext(

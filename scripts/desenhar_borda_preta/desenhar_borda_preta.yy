@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"desenhar_borda_preta",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"desenhar_borda_preta",
+  "parent":{
+    "name":"Sistema",
+    "path":"folders/Sistema.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

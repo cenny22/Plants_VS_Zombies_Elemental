@@ -6,7 +6,7 @@ if (variable_global_exists("plantas_liberadas") && ds_exists(global.plantas_libe
     desbloqueada = ds_map_find_value(global.plantas_liberadas, planta_tipo);
 }
 
-draw_set_font(fnt_menu);
+draw_set_font(fnt_pvz);
 
 if (desbloqueada == true) {
     draw_sprite(sprite_planta, 0, x, y);
