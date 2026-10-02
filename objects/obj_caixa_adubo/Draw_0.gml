@@ -24,8 +24,8 @@ if (global.adubo_selecionado)
         0,
         mouse_x_gui,
         mouse_y_gui,
-        escala_adubo,
-        escala_adubo,
+        escala_adubo * 1.5,
+        escala_adubo * 1.5,
         0,
         c_white,
         0.8
