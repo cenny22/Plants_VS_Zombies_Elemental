@@ -3,6 +3,7 @@ hp = 2000;
 
 var deslocamento_x = 96; 
 var deslocamento_y = -16; 
+adubo_ativado = false;
 
 // Cria a nuvem de gás e passa o ID desta planta para ela
 meu_gas = instance_create_layer(x + deslocamento_x, y + deslocamento_y, "Instances", obj_gas_enroscacovas);
