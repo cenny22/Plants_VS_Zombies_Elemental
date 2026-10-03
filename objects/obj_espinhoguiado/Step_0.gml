@@ -76,132 +76,146 @@ if (!adubo_ativado)
 else
 {
     // ========================================================
-    // NORDESTE
+    // CONFIGURAÇÕES
     // ========================================================
 
-    var _guia_ne = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
-
-    _guia_ne.direction = 45;
+    var _quantidade_por_direcao = 5;
 
     // ========================================================
-    // NORTE
+    // TODAS AS 8 DIREÇÕES
     // ========================================================
 
-    var _guia_n = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
-
-    _guia_n.direction = 90;
-
-    // ========================================================
-    // LESTE
-    // ========================================================
-
-    var _guia_l = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
-
-    _guia_l.direction = 0;
+    var _direcoes = [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+    ];
 
     // ========================================================
-    // SUDESTE
+    // DISPARA PARA TODOS OS LADOS
     // ========================================================
 
-    var _guia_se = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
+    for (
+        var _d = 0;
+        _d < array_length(_direcoes);
+        _d++
+    )
+    {
+        var _direcao =
+            _direcoes[_d];
 
-    _guia_se.direction = 315;
+        // ----------------------------------------------------
+        // VÁRIOS TIROS NA MESMA DIREÇÃO
+        // ----------------------------------------------------
 
-    // ========================================================
-    // SUL
-    // ========================================================
+        for (
+            var _i = 0;
+            _i < _quantidade_por_direcao;
+            _i++
+        )
+        {
+            var _deslocamento =
+                (_i - 2) * 6;
 
-    var _guia_s = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
+            var _guia =
+                instance_create_layer(
+                    x + lengthdir_x(
+                        _deslocamento,
+                        _direcao + 90
+                    ),
+                    y - 10 + lengthdir_y(
+                        _deslocamento,
+                        _direcao + 90
+                    ),
+                    "Instances",
+                    obj_guia
+                );
 
-    _guia_s.direction = 270;
+            // ------------------------------------------------
+            // DIREÇÃO DO TIRO
+            // ------------------------------------------------
 
-    // ========================================================
-    // SUDOESTE
-    // ========================================================
+            _guia.direction =
+                _direcao;
 
-    var _guia_so = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
+            // ------------------------------------------------
+            // NÃO PERSEGUE ZUMBI
+            // ------------------------------------------------
 
-    _guia_so.direction = 225;
-
-    // ========================================================
-    // OESTE
-    // ========================================================
-
-    var _guia_o = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
-
-    _guia_o.direction = 180;
-
-    // ========================================================
-    // NOROESTE
-    // ========================================================
-
-    var _guia_no = instance_create_layer(
-        x + 10,
-        y - 10,
-        "Instances",
-        obj_guia
-    );
-
-    _guia_no.direction = 135;
+            _guia.modo_direcionado = true;
+        }
+    }
 
     // ========================================================
-    // DOIS GUIAS PARA FRENTE
+    // MUITO MAIS TIROS PARA FRENTE
     // ========================================================
 
-    var _guia_frente_1 =
-        instance_create_layer(
-            x + 10,
-            y - 10,
-            "Instances",
-            obj_guia
-        );
+    var _frente = 0;
 
-    _guia_frente_1.direction = 90;
+    while (_frente < 15)
+    {
+        var _guia_frente =
+            instance_create_layer(
+                x + ((_frente - 7) * 5),
+                y - 10,
+                "Instances",
+                obj_guia
+            );
 
-    var _guia_frente_2 =
-        instance_create_layer(
-            x - 10,
-            y - 10,
-            "Instances",
-            obj_guia
-        );
+        _guia_frente.direction = 90;
 
-    _guia_frente_2.direction = 90;
+        // NÃO PERSEGUE ZUMBI
+        _guia_frente.modo_direcionado = true;
+
+        _frente++;
+    }
+
+    // ========================================================
+    // TIROS EXTRAS EM 360°
+    // ========================================================
+
+    var _extra = 0;
+
+    while (_extra < 16)
+    {
+        var _angulo =
+            _extra * 22.5;
+
+        var _guia_extra =
+            instance_create_layer(
+                x,
+                y - 10,
+                "Instances",
+                obj_guia
+            );
+
+        _guia_extra.direction =
+            _angulo;
+
+        // NÃO PERSEGUE ZUMBI
+        _guia_extra.modo_direcionado = true;
+
+        _extra++;
+    }
+
+    // ========================================================
+    // SPRITE DO ADUBO
+    // ========================================================
+
+    sprite_index =
+        spr_espinhoguiado_adubo;
+
+    // ========================================================
+    // TEMPO DA SPRITE
+    // ========================================================
+
+    alarm[1] =
+        game_get_speed(gamespeed_fps) * 1.2;
 
     // ========================================================
     // ADUBO CONSUMIDO
