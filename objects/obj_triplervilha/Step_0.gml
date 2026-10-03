@@ -1,7 +1,28 @@
 event_inherited(); 
 
-var margem_altura = 16; 
+#region OBJ_TRIPLERVILHA — ADUBO
 
+if (adubo_ativado)
+{
+    // ========================================================
+    // INICIA UMA GRANDE RAJADA
+    // ========================================================
+
+    ervilhas_rajada = 60;
+
+    // Começa imediatamente
+    alarm[2] = 1;
+
+    // Impede outro disparo enquanto a rajada acontece
+    pode_atirar = false;
+
+    // Desativa o gatilho para não reiniciar todo frame
+    adubo_ativado = false;
+}
+
+#endregion
+var margem_altura = 16; 
+var distancia_fileira = 100;
 // ====================================================================
 // DETECÇÃO NAS 3 FILEIRAS
 // ====================================================================
@@ -54,3 +75,103 @@ if (zumbi_na_linha && pode_atirar) {
     pode_atirar = false;
     alarm[0] = game_get_speed(gamespeed_fps) * 1.5;
 }
+
+#region
+// ============================================================
+// ADUBO ATIVADO — RAJADA DE ERVILHAS EM 3 LINHAS
+// ============================================================
+
+if (adubo_ativado)
+{
+
+    // ========================================================
+    // QUANTIDADE DE ERVILHAS
+    // ========================================================
+
+    var quantidade_ervilhas = 8;
+
+
+    // ========================================================
+    // ESPAÇAMENTO ENTRE AS ERVILHAS
+    // ========================================================
+
+    var espacamento_ervilha = 25;
+
+
+    // ========================================================
+    // LINHA DE CIMA
+    // ========================================================
+
+    for (var i = 0; i < quantidade_ervilhas; i++)
+    {
+        var ervilha_cima =
+            instance_create_layer(
+                x + 20 - (i * espacamento_ervilha),
+                y - distancia_fileira,
+                "Instances",
+                obj_ervilha
+            );
+
+        ervilha_cima.direction = 0;
+    }
+
+
+    // ========================================================
+    // LINHA DO MEIO
+    // ========================================================
+
+    for (var i = 0; i < quantidade_ervilhas; i++)
+    {
+        var ervilha_meio =
+            instance_create_layer(
+                x + 20 - (i * espacamento_ervilha),
+                y,
+                "Instances",
+                obj_ervilha
+            );
+
+        ervilha_meio.direction = 0;
+    }
+
+
+    // ========================================================
+    // LINHA DE BAIXO
+    // ========================================================
+
+    for (var i = 0; i < quantidade_ervilhas; i++)
+    {
+        var ervilha_baixo =
+            instance_create_layer(
+                x + 20 - (i * espacamento_ervilha),
+                y + distancia_fileira,
+                "Instances",
+                obj_ervilha
+            );
+
+        ervilha_baixo.direction = 0;
+    }
+
+
+    // ========================================================
+    // FINALIZA O ADUBO
+    // ========================================================
+
+    adubo_ativado = false;
+
+
+    // ========================================================
+    // SPRITE DE ADUBO
+    // ========================================================
+
+    //sprite_index = spr_espinhoguiado_adubo;
+
+
+    // ========================================================
+    // VOLTA AO NORMAL DEPOIS DE 1,2 SEGUNDOS
+    // ========================================================
+
+    //alarm[1] =
+       // game_get_speed(gamespeed_fps) * 1.2;
+}
+
+#endregion
