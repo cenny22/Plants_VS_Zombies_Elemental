@@ -28,7 +28,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"Plants VS Zombies Elemental",
   "resources":[
@@ -126,6 +126,7 @@
     {"id":{"name":"obj_controlador_fase9","path":"objects/obj_controlador_fase9/obj_controlador_fase9.yy",},},
     {"id":{"name":"obj_controlador_geral","path":"objects/obj_controlador_geral/obj_controlador_geral.yy",},},
     {"id":{"name":"obj_cortador_grama","path":"objects/obj_cortador_grama/obj_cortador_grama.yy",},},
+    {"id":{"name":"obj_corte_1","path":"objects/obj_corte_1/obj_corte_1.yy",},},
     {"id":{"name":"obj_corte","path":"objects/obj_corte/obj_corte.yy",},},
     {"id":{"name":"obj_cova_infectada","path":"objects/obj_cova_infectada/obj_cova_infectada.yy",},},
     {"id":{"name":"obj_cova_sono","path":"objects/obj_cova_sono/obj_cova_sono.yy",},},
@@ -293,6 +294,7 @@
     {"id":{"name":"spr_batatamina_n_pronta","path":"sprites/spr_batatamina_n_pronta/spr_batatamina_n_pronta.yy",},},
     {"id":{"name":"spr_boss","path":"sprites/spr_boss/spr_boss.yy",},},
     {"id":{"name":"Spr_cadeado","path":"sprites/Spr_cadeado/Spr_cadeado.yy",},},
+    {"id":{"name":"spr_corte_1","path":"sprites/spr_corte_1/spr_corte_1.yy",},},
     {"id":{"name":"spr_corte","path":"sprites/spr_corte/spr_corte.yy",},},
     {"id":{"name":"Spr_d_penny_1","path":"sprites/Spr_d_penny_1/Spr_d_penny_1.yy",},},
     {"id":{"name":"Spr_d_penny","path":"sprites/Spr_d_penny/Spr_d_penny.yy",},},

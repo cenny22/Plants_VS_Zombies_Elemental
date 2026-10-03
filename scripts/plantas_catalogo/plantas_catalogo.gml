@@ -16,7 +16,7 @@ function plantas_criar_catalogo()
         veudenoiva:         { objeto: obj_veudenoiva,         card: obj_card_veudenoiva,         custo: 150, recarga: 7.5,  desbloqueada_inicial: 1 },
         broto:              { objeto: obj_brotoflorescedor,   card: obj_card_brotoflorescedor,   custo: 75,  recarga: 5.0,  desbloqueada_inicial: 1 },
         morcegarrador:      { objeto: obj_morcegarrador,      card: obj_card_morcegarrador,      custo: 100, recarga: 40.0, desbloqueada_inicial: 1 },//
-        enroscacovas:       { objeto: obj_enroscacovas,       card: obj_card_enroscacovas,       custo: 50,  recarga: 20.0, desbloqueada_inicial: 1 },
+        enroscacovas:       { objeto: obj_enroscacovas_cova,       card: obj_card_enroscacovas,       custo: 50,  recarga: 20.0, desbloqueada_inicial: 1 },
         triplervilha:       { objeto: obj_triplervilha,       card: obj_card_triplervilha,       custo: 275, recarga: 15.0, desbloqueada_inicial: 1 },
         espinhoguiado:      { objeto: obj_espinhoguiado,      card: obj_card_espinhoguiado,      custo: 250, recarga: 15.0, desbloqueada_inicial: 1 },
         trepaervilha:       { objeto: obj_trepaervilha,       card: obj_card_trepaervilha,       custo: 125, recarga: 15.0, desbloqueada_inicial: 1 } //
