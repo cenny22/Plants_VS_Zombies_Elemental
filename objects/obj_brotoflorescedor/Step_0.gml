@@ -4,7 +4,7 @@ event_inherited();
 // 1. CONTAGEM DE PLANTAS AO REDOR (3x3 do Grid)
 // ====================================================================
 var margem = tamanho_bloco * 1.5;
-var plantas_vizinhas = 0;
+
 
 with (obj_planta_parent) {
     if (id != other.id) {
@@ -54,3 +54,10 @@ if (zumbi_na_linha && pode_atirar) {
     pode_atirar = false;
     alarm[0] = game_get_speed(gamespeed_fps) * 1.5; 
 }
+
+if (adubo_ativado == true)
+{
+	plantas_vizinhas += 8;
+}
+	
+	

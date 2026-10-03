@@ -58,5 +58,6 @@ if (adubo_ativado == true)
 		tiro.image_yscale = 3;
         pode_atirar = false;
         alarm[0] = game_get_speed(gamespeed_fps) * 2.5;
+		hp = 16000
 		adubo_ativado = false;
 }
