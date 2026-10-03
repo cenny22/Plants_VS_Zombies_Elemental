@@ -47,3 +47,16 @@ else if (estado == "ataque") {
         alarm[0] = game_get_speed(gamespeed_fps) * 2.5;
     }
 }
+
+// Adubo da Véu de noiva
+
+if (adubo_ativado == true)
+{
+	
+		var tiro = instance_create_layer(x + 20, y, "Instances", obj_corte_1);
+		tiro.image_xscale = 3;
+		tiro.image_yscale = 3;
+        pode_atirar = false;
+        alarm[0] = game_get_speed(gamespeed_fps) * 2.5;
+		adubo_ativado = false;
+}

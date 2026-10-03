@@ -1,0 +1,1 @@
+instance_destroy(); // Evita que ervilhas infinitas saiam do mapa e deem lag
