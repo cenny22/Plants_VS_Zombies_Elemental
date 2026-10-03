@@ -1,5 +1,20 @@
 event_inherited(); // Garante que morra se o HP chegar a zero
 
+if (adubo_ativado)
+{
+    adubo_ativado = false;  // Reseta o gatilho
+    ervilhas_rajada = 15;   // Define o total de 60 ervilhas
+    pode_atirar = false;    // Pausa o disparo comum durante a super rajada
+    
+    // Troca para a animação de ataque
+    sprite_index = Sprite130;
+    image_index = 0;
+    
+    // Inicia a metralhadora de ervilhas no próximo frame
+    alarm[2] = 1;
+}
+
+
 var margem_altura = 16; 
 
 // Procura alvos na linha
