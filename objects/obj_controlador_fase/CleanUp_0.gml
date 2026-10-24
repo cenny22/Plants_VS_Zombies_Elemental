@@ -1,2 +1,5 @@
-// Sempre limpe estruturas de dados para evitar Lag (Memory Leak)
+#region CLEAN UP
+
 ds_list_destroy(global.plantas_escolhidas);
+
+#endregion

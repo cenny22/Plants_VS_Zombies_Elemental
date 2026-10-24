@@ -1,15 +1,42 @@
-global.sois = 50; // Começa com 150 sóis também
-total_fase = 10;
-//global.sois = 100000000000000000; 
+#region CREATE
+
+global.sois = 50;
 global.fase_iniciada = false;
-global.planta_selecionada = noone;
-horda_iniciada = false; // Define que a horda da fase 2 ainda não começou
+global.planta_selecionada = noone; 
 
-// Reinicia o contador de zumbis mortos para esta fase
-global.zumbis_mortos = 0; 
-// Inicializa o contador de zumbis nascidos
-zumbis_nascidos = 0;
+global.plantas_escolhidas = ds_list_create();
+global.zumbis_mortos = 0;
 
-// Nota: Não criamos a lista global.plantas_escolhidas aqui porque 
-// ela já foi criada pelo jogo lá na Fase 1 e continua valendo.
-// ... seus códigos originais do Create ...
+// ============================================================
+// CONFIGURAÇÕES DO SISTEMA DE HORDAS
+// ============================================================
+
+tempo_fase = room_speed * 45; // Tempo de espera entre cada fase/horda (ex: 15s)
+
+// Tabelas de zumbis
+zumbi_inicial = [obj_zumbi_basico];
+zumbis_horda1 = [obj_zumbi_basico];
+zumbis_horda2 = [obj_zumbi_basico];
+zumbis_horda3 = [obj_zumbi_basico];
+zumbis_intermediarios = [obj_zumbi_basico];
+
+// Quantidade de zumbis em cada horda
+qtd_horda1 = 3;
+qtd_horda2 = 5;
+qtd_horda3 = 7;
+
+// Fluxo da Fase:
+// 0: Espera inicio | 1: Zumbi inicial | 2: Horda 1 (Spawn em bloco)
+// 3: Intermediários 1 | 4: Horda 2 (Spawn em bloco) | 5: Intermediários 2
+// 6: Horda 3 (Spawn em bloco) | 7: Aguardando vitória
+fase_etapa = 0;
+zumbis_mortos_horda_inicio = 0;
+fase_vencida = false;
+
+// Controle suave do progresso visual da barra (0 a 1)
+progresso_barra = 0;
+
+// Timer para a mensagem da horda
+aviso_horda_timer = 0;
+
+#endregion

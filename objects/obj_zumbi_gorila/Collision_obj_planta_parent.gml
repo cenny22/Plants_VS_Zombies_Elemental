@@ -1,3 +1,4 @@
+event_inherited(); // Herda as variáveis do zumbi pai
 // Executa o impacto apenas se ele ainda estiver na investida (-4 de velocidade)
 if (em_investida) {
     // Destrói a planta atingida
