@@ -1,39 +1,42 @@
-// ====================================================================
-// 1. ESTADO GLOBAL DA PARTID
-global.zumbis_mortos = 0;
-// ====================================================================
-global.sois = 50; 
-//global.sois = 100000000000000000; 
+#region CREATE
+
+global.sois = 100;
 global.fase_iniciada = false;
 global.planta_selecionada = noone; 
 
-// Lista dinâmica que vai guardar quais plantas o jogador escolheu para levar para a partida
 global.plantas_escolhidas = ds_list_create();
+global.zumbis_mortos = 0;
 
-// ====================================================================
-// 2. CONTROLE DE PROGRESSO DA FASE 4
-// ====================================================================
-zumbis_nascidos = 0;
-zumbis_mortos = 0;
-total_fase = 20; // Meta de zumbis para vencer esta fase
+// ============================================================
+// CONFIGURAÇÕES DO SISTEMA DE HORDAS
+// ============================================================
 
-// ====================================================================
-// 3. COORDENADAS DE NASCIMENTO (SPAWN)
-// ====================================================================
-// Posição X: Um pouco além da borda direita da tela (ajuste se sua room for maior)
-posicao_spawn_x = room_width + 60; 
+tempo_fase = room_speed * 60; // Tempo de espera entre cada fase/horda (ex: 15s)
 
-// Posições Y: Ajuste esses números para baterem com o centro das suas fileiras!
-fileiras_y[0] = 177; 
-fileiras_y[1] = 304;
-fileiras_y[2] = 433;
-fileiras_y[3] = 560;
-fileiras_y[4] = 689;
+// Tabelas de zumbis
+zumbi_inicial = [obj_zumbi_basico];
+zumbis_horda1 = [obj_zumbi_basico, obj_zumbi_cone];
+zumbis_horda2 = [obj_zumbi_arbusto, obj_zumbi_balde];
+zumbis_horda3 = [obj_zumbi_cone, obj_zumbi_balde, obj_zumbi_arbusto];
+zumbis_intermediarios = [obj_zumbi_arbusto];
 
-// ====================================================================
-// 4. SEGURANÇA DOS ALARMES
-// ====================================================================
-// Garantimos que os alarmes comecem totalmente desligados (-1)
-alarm[0] = -1;
-alarm[1] = -1;
-horda_iniciada = false; // Trava para ligar o alarme apenas UMA vez
+// Quantidade de zumbis em cada horda
+qtd_horda1 = 10;
+qtd_horda2 = 12;
+qtd_horda3 = 15;
+
+// Fluxo da Fase:
+// 0: Espera inicio | 1: Zumbi inicial | 2: Horda 1 (Spawn em bloco)
+// 3: Intermediários 1 | 4: Horda 2 (Spawn em bloco) | 5: Intermediários 2
+// 6: Horda 3 (Spawn em bloco) | 7: Aguardando vitória
+fase_etapa = 0;
+zumbis_mortos_horda_inicio = 0;
+fase_vencida = false;
+
+// Controle suave do progresso visual da barra (0 a 1)
+progresso_barra = 0;
+
+// Timer para a mensagem da horda
+aviso_horda_timer = 0;
+
+#endregion

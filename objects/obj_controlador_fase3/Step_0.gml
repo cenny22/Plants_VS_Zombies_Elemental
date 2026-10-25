@@ -84,7 +84,7 @@ if (fase_etapa == 7 && !fase_vencida)
         
         if (variable_global_exists("plantas_liberadas"))
         {
-            ds_map_replace(global.plantas_liberadas, "girassol", true);
+            ds_map_replace(global.plantas_liberadas, "ervaespinho", true);
         }
         
         room_goto(Room_fases_planta);

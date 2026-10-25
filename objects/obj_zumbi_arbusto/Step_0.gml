@@ -1,17 +1,20 @@
 // ====================================================================
-// 1. INTERAÇÃO ESPECIAL COM ERVA-ESPINHO (MORTE INSTANTÂNEA)
+// 1. INTERAÇÃO ESPECIAL COM ERVA-ESPINHO (MORTE MÚTUA)
 // ====================================================================
-// Verifica se ele tocou em alguma Erva-Espinho
 var espinho_tocado = instance_place(x, y, obj_ervaespinho);
 
 if (espinho_tocado != noone) {
-    // Tocou, morreu. Sem choro.
+    // Destrói a erva-espinho primeiro
+    with (espinho_tocado) {
+        instance_destroy();
+    }
+    
+    // Tocou, o zumbi também morre
     instance_destroy();
     
-    // Avisa o controlador da fase (ajuste para o controlador da sua fase atual)
-    if (instance_exists(obj_controlador_fase4)) {
-        obj_controlador_fase4.zumbis_mortos += 1;
-    }
+    // Atualiza o placar de kills global
+    global.zumbis_mortos += 1;
+    
     exit; // Para o código aqui para não processar o resto
 }
 
@@ -26,16 +29,13 @@ if (planta_frente != noone) {
     // TEM PLANTA NA FRENTE! Ele para e começa a comer
     if (estado == "andando") {
         estado = "comendo";
-        speed = 0; // Para de andar
+        velocidade_atual = 0; // Para de andar
         atacadoread = planta_frente; // Define o alvo do ataque
         danos_timer = 0; // Reseta o timer de dano
         
-        // CORREÇÃO DE COORDENADA: Garante que ele fique perfeitamente alinhado na fileira (Y)
-        // E fixa a distância X ideal da planta para ele não dar o "pulo"
         y = planta_frente.y; 
-        x = planta_frente.x + 40; // Ajuste o "+ 40" para a distância visual perfeita da mordida
+        x = planta_frente.x + 40; 
         
-        // MUDANÇA VISUAL: Muda para o sprite dele comendo
         if (sprite_exists(spr_zumbi_arbusto_comendo)) {
             sprite_index = spr_zumbi_arbusto_comendo;
             image_index = 0; 
@@ -46,13 +46,12 @@ if (planta_frente != noone) {
     // NÃO TEM PLANTA NA FRENTE. Ele continua andando (ou volta a andar)
     if (estado == "comendo") {
         estado = "andando";
-        speed = vel_padrao; // Volta a andar
+        velocidade_atual = vel_padrao; // Volta a andar
         atacadoread = noone; // Limpa o alvo
         
-        // MUDANÇA VISUAL: Volta para o sprite dele andando (o arbusto)
         if (sprite_exists(spr_zumbi_arbusto_andando)) {
             sprite_index = spr_zumbi_arbusto_andando;
-            image_speed = 1; // Garante que a animação continue
+            image_speed = 1; 
         }
     }
 }
@@ -61,32 +60,35 @@ if (planta_frente != noone) {
 if (estado == "comendo" && instance_exists(atacadoread)) {
     danos_timer++;
     
-    // Desfere 1 ataque a cada 1 segundo (baseado na velocidade da sala)
     if (danos_timer >= room_speed) { 
-        atacadoread.hp -= 100; // Tira 100 de vida da planta
-        danos_timer = 0;       // Reseta o cronômetro do dano
+        atacadoread.hp -= 100; 
+        danos_timer = 0;        
     }
 }
 
+// ====================================================================
+// 3. MOVIMENTAÇÃO CONTÍNUA
+// ====================================================================
+if (!paralisado) {
+    x += velocidade_atual;
+}
 
 // ====================================================================
-// 3. CONDIÇÃO DE GAME OVER
-// ====================================================================
-// Se o zumbi passar do limite esquerdo da tela (chegar na casa)
-if (x <= 50) { 
-    room_goto(Room_gameover); // Leva o jogador para a tela de derrota
-}
-// ====================================================================
-// LÓGICA DE PARALISIA
+// 4. LÓGICA DE PARALISIA
 // ====================================================================
 if (paralisado) {
-    velocidade_atual = 0; // Garante que o zumbi continue parado
+    velocidade_atual = 0; 
+    tempo_paralisado -= 1; 
     
-    tempo_paralisado -= 1; // Decrementa 1 frame a cada Step
-    
-    // Quando os 10 segundos acabarem
     if (tempo_paralisado <= 0) {
         paralisado = false;
-        velocidade_atual = velocidade_salva; // Devolve a velocidade normal ao zumbi
+        velocidade_atual = velocidade_salva; 
     }
+}
+
+// ====================================================================
+// 5. CONDIÇÃO DE GAME OVER
+// ====================================================================
+if (x <= 50) { 
+    room_goto(Room_gameover); 
 }

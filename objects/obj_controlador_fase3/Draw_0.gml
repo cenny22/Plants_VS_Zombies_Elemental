@@ -21,7 +21,7 @@ draw_text(50, 20, "________" + string(global.sois));
 
 if (!global.fase_iniciada) {
     draw_set_color(c_white);
-    draw_text(room_width / 2 - 100, 50, "Mata dos bichos - dia 1");
+    draw_text(room_width / 2 - 100, 50, "Mata dos bichos - dia 3");
     draw_text(30, 60, "Escolhidas: " + string(ds_list_size(global.plantas_escolhidas)) + "/7");
 }
 
