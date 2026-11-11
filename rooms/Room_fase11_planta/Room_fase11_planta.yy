@@ -76,6 +76,7 @@
     {"name":"inst_1F723D22","path":"rooms/Room_fase11_planta/Room_fase11_planta.yy",},
     {"name":"inst_1B0A5F6C","path":"rooms/Room_fase11_planta/Room_fase11_planta.yy",},
     {"name":"inst_5A69C1FC","path":"rooms/Room_fase11_planta/Room_fase11_planta.yy",},
+    {"name":"inst_7970ED99","path":"rooms/Room_fase11_planta/Room_fase11_planta.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -107,6 +108,7 @@
         {"$GMRInstance":"v4","%Name":"inst_14D29043","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_14D29043","objectId":{"name":"obj_card_trepaervilha","path":"objects/obj_card_trepaervilha/obj_card_trepaervilha.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":1.5,"x":672.0,"y":352.0,},
         {"$GMRInstance":"v4","%Name":"inst_1F723D22","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1F723D22","objectId":{"name":"obj_pa","path":"objects/obj_pa/obj_pa.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":1.5,"x":1312.0,"y":704.0,},
         {"$GMRInstance":"v4","%Name":"inst_5A69C1FC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A69C1FC","objectId":{"name":"obj_caixa_adubo","path":"objects/obj_caixa_adubo/obj_caixa_adubo.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1024.0,"y":640.0,},
+        {"$GMRInstance":"v4","%Name":"inst_7970ED99","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7970ED99","objectId":{"name":"obj_card_soprinho","path":"objects/obj_card_soprinho/obj_card_soprinho.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":1.5,"x":768.0,"y":352.0,},
       ],"layers":[],"name":"Instances_1","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_2","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_21CED381_1_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_21CED381_1_1","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":1.5,"spriteId":{"name":"spr_quadrado_plantas","path":"sprites/spr_quadrado_plantas/spr_quadrado_plantas.yy",},"x":121.0,"y":90.0,},

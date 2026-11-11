@@ -146,6 +146,16 @@ if (index < ds_list_size(global.plantas_escolhidas))
         obj_card = obj_card_repelecao;
         planta_obj_nome = "obj_repepe_cao";
     }
+	
+	// ========================================================
+    // SOPRINHO
+    // ========================================================
+
+    else if (nome == "soprinho")
+    {
+        obj_card = obj_card_soprinho;
+        planta_obj_nome = "obj_soprogumelo";
+    }
 
 
     // ========================================================

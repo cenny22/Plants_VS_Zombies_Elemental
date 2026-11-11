@@ -34,6 +34,7 @@ if (global.zumbis_mortos >= total_fase) {
         global.fase_iniciada = false;
         global.zumbis_mortos = 0; // RESET CRÍTICO: Zera os mortos para não dar loop no mapa/próxima fase!
         ds_map_replace(global.plantas_liberadas, "espinhoguiado", true);
+        ds_map_replace(global.plantas_liberadas, "soprogumelo", true);
         room_goto(Room_fases_planta); // Volta para o menu/mapa
     }
 }

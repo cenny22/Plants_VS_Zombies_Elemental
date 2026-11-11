@@ -92,3 +92,22 @@ if (paralisado) {
 if (x <= 50) { 
     room_goto(Room_gameover); 
 }
+
+// ====================================================================
+// VERIFICAÇÃO DE MORTE POR DANO (ERVILHAS, ETC.)
+// ====================================================================
+if (hp <= 0) {
+    global.zumbis_mortos += 1; // Conta como zumbi morto para a progressão da fase
+    instance_destroy();        // Destrói o zumbi
+    exit;
+}
+
+if (pisk > 0)
+{
+    image_alpha = 0.6;
+    pisk--;
+}
+else
+{
+    image_alpha = 1;
+}

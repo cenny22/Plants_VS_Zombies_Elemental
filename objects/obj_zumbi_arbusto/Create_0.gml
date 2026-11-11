@@ -38,5 +38,6 @@ eh_animal = false;
 
 paralisado = false;
 tempo_paralisado = 0;
+pisk = 0;
 
 velocidade_salva = 0;

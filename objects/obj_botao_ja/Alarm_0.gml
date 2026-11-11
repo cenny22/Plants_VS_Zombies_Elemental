@@ -42,6 +42,15 @@ if (ds_list_size(global.plantas_escolhidas) > 0)
             instance_destroy();
         }
     }
+	
+
+    if (instance_exists(obj_card_soprinho))
+    {
+        with (obj_card_soprinho)
+        {
+            instance_destroy();
+        }
+    }
 
     if (instance_exists(obj_card_enroscacovas))
     {
