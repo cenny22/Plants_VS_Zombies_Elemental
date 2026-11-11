@@ -8,22 +8,22 @@ global.plantas_escolhidas = ds_list_create();
 global.zumbis_mortos = 0;
 
 // ============================================================
-// CONFIGURAÇÕES DO SISTEMA DE HORDAS
+// CONFIGURAÇÕES DO SISTEMA DE HORDAS (FASE 5)
 // ============================================================
 
-tempo_fase = room_speed * 60; // Tempo de espera entre cada fase/horda (ex: 15s)
+tempo_fase = room_speed * 60; // Tempo de espera entre hordas
 
-// Tabelas de zumbis
+// Tabelas de zumbis ajustadas para a Fase 5
 zumbi_inicial = [obj_zumbi_basico];
-zumbis_horda1 = [obj_zumbi_basico, obj_zumbi_galinheiro];
+zumbis_horda1 = [obj_zumbi_cone, obj_zumbi_galinheiro, obj_zumbi_galinheiro]; // Zumbis de cone e 2 galinheiros na horda 1
 zumbis_horda2 = [obj_zumbi_galinheiro, obj_zumbi_balde];
-zumbis_horda3 = [obj_zumbi_cone, obj_zumbi_balde, obj_zumbi_arbusto];
-zumbis_intermediarios = [obj_zumbi_galinheiro];
+zumbis_horda3 = [obj_zumbi_galinheiro, obj_zumbi_balde, obj_zumbi_arbusto];
+zumbis_intermediarios = [obj_zumbi_cone]; // Zumbi intermediário agora é o cone
 
 // Quantidade de zumbis em cada horda
 qtd_horda1 = 5;
 qtd_horda2 = 7;
-qtd_horda3 = 15;
+qtd_horda3 = 7;
 
 // Fluxo da Fase:
 // 0: Espera inicio | 1: Zumbi inicial | 2: Horda 1 (Spawn em bloco)
@@ -32,6 +32,9 @@ qtd_horda3 = 15;
 fase_etapa = 0;
 zumbis_mortos_horda_inicio = 0;
 fase_vencida = false;
+
+// Controle do evento especial de 2 galinheiros aos 23 segundos
+galinheiros_23s_spawnados = false;
 
 // Controle suave do progresso visual da barra (0 a 1)
 progresso_barra = 0;

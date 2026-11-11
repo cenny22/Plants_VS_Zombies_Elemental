@@ -26,6 +26,17 @@ if (global.fase_iniciada == true && fase_etapa == 0)
 }
 
 // ============================================================
+// EVENTO ESPECIAL: 2 GALINHEIROS AOS 23 SEGUNDOS (2ª e 4ª fileiras)
+// ============================================================
+if (global.fase_iniciada && !galinheiros_23s_spawnados)
+{
+    if (alarm[3] <= 0) {
+        alarm[3] = room_speed * 50
+        galinheiros_23s_spawnados = true; // Garante que roda apenas uma vez
+    }
+}
+
+// ============================================================
 // 2. GATILHO DAS HORDAS 2 E 3 (Quando 50% dos mortos forem atingidos)
 // ============================================================
 
@@ -56,11 +67,10 @@ if (global.fase_iniciada)
 {
     var alvo_progresso = 0;
     
-    // Mapeia o progresso para avançar até as bandeiras
     if (fase_etapa == 1) alvo_progresso = 0.1;
-    else if (fase_etapa == 2 || fase_etapa == 3) alvo_progresso = 0.35; // Chega na Bandeira 1
-    else if (fase_etapa == 4 || fase_etapa == 5) alvo_progresso = 0.70; // Chega na Bandeira 2
-    else if (fase_etapa >= 6) alvo_progresso = 1.00;                     // Chega na Bandeira 3
+    else if (fase_etapa == 2 || fase_etapa == 3) alvo_progresso = 0.35; 
+    else if (fase_etapa == 4 || fase_etapa == 5) alvo_progresso = 0.70; 
+    else if (fase_etapa >= 6) alvo_progresso = 1.00;                     
 
     progresso_barra = lerp(progresso_barra, alvo_progresso, 0.02);
 }
@@ -80,13 +90,15 @@ if (fase_etapa == 7 && !fase_vencida)
         alarm[0] = -1;
         alarm[1] = -1;
         alarm[2] = -1;
+        alarm[3] = -1;
         global.fase_iniciada = false;
-        
-        if (variable_global_exists("plantas_liberadas"))
+		
+		if (variable_global_exists("plantas_liberadas"))
         {
             ds_map_replace(global.plantas_liberadas, "esparabalde", true);
         }
         
+        // Se houver recompensa para essa fase, ajuste aqui com comentário correto
         room_goto(Room_fases_planta);
     }
 }
