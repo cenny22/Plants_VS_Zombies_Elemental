@@ -50,7 +50,7 @@ if (global.sois < dados.custo)
 }
 
 // ============================================================
-// CRIAR A PLANTA
+// CRIAR PLANTA CENTRALIZADA
 // ============================================================
 
 var planta_criada = instance_create_layer(
@@ -65,6 +65,9 @@ if (planta_criada == noone)
     exit;
 }
 
+// Garantir origem no centro
+planta_criada.image_xoffset = 0;
+planta_criada.image_yoffset = 0;
 // ============================================================
 // DESCONTAR SÓIS IMEDIATAMENTE (COMO JÁ ERA ANTES)
 // ============================================================
